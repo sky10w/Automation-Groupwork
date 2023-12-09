@@ -7,5 +7,6 @@
 #define BASIC_NAMESPACE_END }
 
 using id_t = int;
+using val_t = char;
 
 #endif
