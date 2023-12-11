@@ -10,6 +10,19 @@
 
 BASIC_NAMESPACE_BEGIN
 
+struct Basic_Map
+{
+    std::unordered_map<id_t, std::map<id_t, Edge *>> _edgeList;
+    std::unordered_map<id_t, std::map<id_t, Edge *>> _reverseEdgeList;
+    size_t _edgeSize = 0;
+
+    std::vector<Node *> _nodeList;
+    std::map<id_t, Node *> _endNode;
+
+    Node *_startNode;
+    size_t _nodeSize = 0;
+};
+
 class Map
 {
 private:
@@ -23,13 +36,24 @@ private:
     size_t _edgeSize = 0;
 
     std::vector<Node *> _nodeList;
+
+    Node *_startNode;
     size_t _nodeSize = 0;
 
 public:
-    Map() = delete;
+    Map();
     Map(size_t __nodeSize);
     ~Map();
-    void insertEdge(id_t __fromId, id_t __toId, val_t __edgeVal);
+    void insertEdge(id_t __fromNodeId, id_t __toNodeId, val_t __edgeVal);
+    id_t insertNode(node_t __nodeType);
+};
+
+// 该类为所有转换嘞的接口，
+// 所有的转换都最好通过 “新建类，继承该接口，并重写该类的convert成员函数” 来实现
+class Converter
+{
+public:
+    virtual Map convert() = 0;
 };
 
 BASIC_NAMESPACE_END
