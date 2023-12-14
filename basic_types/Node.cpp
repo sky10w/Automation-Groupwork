@@ -2,8 +2,9 @@
 
 BASIC_NAMESPACE_BEGIN
 
-Node::Node(id_t __id)
-    : id(__id)
+Node::Node(id_t __id, node_t __type)
+    : id(__id),
+      type(__type)
 {
 }
 

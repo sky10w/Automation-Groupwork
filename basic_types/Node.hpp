@@ -8,7 +8,8 @@ BASIC_NAMESPACE_BEGIN
 struct Node
 {
     id_t id;
-    Node(id_t __id);
+    node_t type;
+    Node(id_t __id, node_t __val);
 };
 
 BASIC_NAMESPACE_END
