@@ -1,0 +1,2 @@
+D:\Libs\LLVM\bin\llvm-ar.exe qc basic_types.lib CMakeFiles/basic_types.dir/Edge.cpp.obj CMakeFiles/basic_types.dir/Map.cpp.obj CMakeFiles/basic_types.dir/Node.cpp.obj
+D:\Libs\LLVM\bin\llvm-ranlib.exe basic_types.lib
