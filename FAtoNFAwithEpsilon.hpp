@@ -18,14 +18,14 @@ private:
     static const item_t loop;
 
     // 将中缀表达式转换为后缀表达式，便于后续操作
-    std::list<item_t> _midToPost( const std::string& __fa );
+    std::list<item_t> _midToPost( const std::string& __re );
 
 public:
     // 仅测试用
-    void testMidToPost( const std::string& __fa );
+    void testMidToPost( const std::string& __re );
 
     // 输入FA，返回一个带空转移的NFA
-    ato::Map convert( const std::string& __fa );
+    ato::Map convert( const std::string& __re );
 };
 
 #endif

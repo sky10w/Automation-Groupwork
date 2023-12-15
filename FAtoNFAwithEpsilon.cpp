@@ -9,7 +9,8 @@ const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::plus = { '+' };
 const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::concat = { '&' };
 const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::loop = { '*' };
 
-std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( const std::string& __fa )
+// Fully Tested
+std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( const std::string& __re )
 {
     // item_t tempList;
     std::stack<item_t> signStk;
@@ -48,7 +49,7 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
                 return;
 
             // 前一个字符不是 + 或 (
-            if (__fa[i - 1] == plus || __fa[i - 1] == leftBracket)
+            if (__re[i - 1] == plus || __re[i - 1] == leftBracket)
                 return;
 
             // 加入 &
@@ -57,9 +58,9 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
         };
 
 
-    for (int i = 0; i < __fa.length(); ++i)
+    for (int i = 0; i < __re.length(); ++i)
     {
-        switch (__fa[i])
+        switch (__re[i])
         {
         case '(':
             pushConcat( i );
@@ -101,7 +102,7 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
         default:
             pushConcat( i );
 
-            resList.push_back( __fa[i] );
+            resList.push_back( __re[i] );
             break;
         }
     }
@@ -115,31 +116,45 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
     return resList;
 }
 
-void ConvertFAtoNFAEpsilon::testMidToPost( const std::string& __fa )
+void ConvertFAtoNFAEpsilon::testMidToPost( const std::string& __re )
 {
-    auto list = _midToPost( __fa );
+    auto list = _midToPost( __re );
     for (auto& i : list)
     {
         std::cout << i << ' ';
     }
 }
 
-ato::Map ConvertFAtoNFAEpsilon::convert( const std::string& __fa )
+ato::Map ConvertFAtoNFAEpsilon::convert( const std::string& __re )
 {
-    auto itemList = _midToPost( __fa );
+    auto itemList = _midToPost( __re );
 
-    std::stack<std::pair<item_t, int>> numStk;
-    std::vector<ato::Map> mapVec;
+    std::stack<std::pair<item_t, ato::Map>> numStk;
 
     for (int i = 0; auto & item : itemList)
     {
         if (item == '0' || item == '1')
         {
-            numStk.push( { item , ++i } );
-            mapVec.push_back( ato::Map() );
+            ato::Map tempMp;
+            tempMp.insertNode( ato::node_t::START );
+            tempMp.insertNode( ato::node_t::END );
+            tempMp.insertEdge( tempMp.begin(), *( tempMp.last().begin() ), item );
+            numStk.push( { item , tempMp } );
+
         } else if (item == '*')
         {
             auto tar = numStk.top();
+            auto& mp = tar.second;
+            mp.insertEdge( *( mp.last().begin() ), mp.begin(), ato::EPSILON );
+        } else if (item == '+')
+        {
+            // 结果中后部的结点
+            auto tar1 = numStk.top();
+            numStk.pop();
+            // 结果中前部的结点
+            auto tar2 = numStk.top();
+            ato::Map tempMp;
+
         }
 
 

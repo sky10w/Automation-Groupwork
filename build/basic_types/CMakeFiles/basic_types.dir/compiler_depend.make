@@ -5,7 +5,7 @@ basic_types/CMakeFiles/basic_types.dir/Edge.cpp.obj: D:/Codes/ClassHomework/Auto
   D:/Codes/ClassHomework/Automation/basic_types/Edge.hpp \
   D:/Codes/ClassHomework/Automation/basic_types/macros.hpp \
   D:/Codes/ClassHomework/Automation/basic_types/Node.hpp \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_set \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/map \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals_core.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/sal.h \
@@ -13,27 +13,35 @@ basic_types/CMakeFiles/basic_types.dir/Edge.cpp.obj: D:/Codes/ClassHomework/Auto
   D:/Libs/LLVM/lib/clang/17/include/vadefs.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vadefs.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xkeycheck.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xhash \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cmath \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint \
+  D:/Libs/LLVM/lib/clang/17/include/stdint.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef \
+  D:/Libs/LLVM/lib/clang/17/include/stddef.h \
+  D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_math.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdlib.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_malloc.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstdlib.h \
+  D:/Libs/LLVM/lib/clang/17/include/limits.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/crtdbg.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new_debug.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/use_ansi.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_math.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdlib.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_malloc.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h \
-  D:/Libs/LLVM/lib/clang/17/include/stddef.h \
-  D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstdlib.h \
-  D:/Libs/LLVM/lib/clang/17/include/limits.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstring \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/string.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_memory.h \
@@ -41,6 +49,13 @@ basic_types/CMakeFiles/basic_types.dir/Edge.cpp.obj: D:/Codes/ClassHomework/Auto
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/errno.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_string.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstring.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtree \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cfloat \
+  D:/Libs/LLVM/lib/clang/17/include/float.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cwchar \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdio \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdio.h \
@@ -56,33 +71,21 @@ basic_types/CMakeFiles/basic_types.dir/Edge.cpp.obj: D:/Codes/ClassHomework/Auto
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wtime.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/stat.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/types.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/list \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint \
-  D:/Libs/LLVM/lib/clang/17/include/stdint.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cfloat \
-  D:/Libs/LLVM/lib/clang/17/include/float.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.inl.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/isa_availability.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/new \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/exception \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/malloc.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_exception.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/eh.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_terminate.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xatomic.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/set \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_set \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xhash \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cmath \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/list \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vector \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xbit_ops.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstring \
@@ -93,7 +96,7 @@ basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj: D:/Codes/ClassHomework/Autom
   D:/Codes/ClassHomework/Automation/basic_types/macros.hpp \
   D:/Codes/ClassHomework/Automation/basic_types/Edge.hpp \
   D:/Codes/ClassHomework/Automation/basic_types/Node.hpp \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_set \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/map \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals_core.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/sal.h \
@@ -101,27 +104,35 @@ basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj: D:/Codes/ClassHomework/Autom
   D:/Libs/LLVM/lib/clang/17/include/vadefs.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vadefs.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xkeycheck.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xhash \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cmath \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint \
+  D:/Libs/LLVM/lib/clang/17/include/stdint.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef \
+  D:/Libs/LLVM/lib/clang/17/include/stddef.h \
+  D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_math.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdlib.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_malloc.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstdlib.h \
+  D:/Libs/LLVM/lib/clang/17/include/limits.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/crtdbg.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new_debug.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/use_ansi.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_math.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdlib.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_malloc.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h \
-  D:/Libs/LLVM/lib/clang/17/include/stddef.h \
-  D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstdlib.h \
-  D:/Libs/LLVM/lib/clang/17/include/limits.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstring \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/string.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_memory.h \
@@ -129,6 +140,13 @@ basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj: D:/Codes/ClassHomework/Autom
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/errno.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_string.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstring.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtree \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cfloat \
+  D:/Libs/LLVM/lib/clang/17/include/float.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cwchar \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdio \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdio.h \
@@ -144,46 +162,108 @@ basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj: D:/Codes/ClassHomework/Autom
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wtime.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/stat.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/types.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/list \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint \
-  D:/Libs/LLVM/lib/clang/17/include/stdint.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cfloat \
-  D:/Libs/LLVM/lib/clang/17/include/float.h \
-  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.inl.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/isa_availability.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/new \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/exception \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/malloc.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_exception.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/eh.h \
   C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_terminate.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xatomic.h \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/set \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_set \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xhash \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cmath \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/list \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vector \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xbit_ops.h \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstring \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/iosfwd \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_map \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/map \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtree \
-  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/set \
   D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdexcept
 
 basic_types/CMakeFiles/basic_types.dir/Node.cpp.obj: D:/Codes/ClassHomework/Automation/basic_types/Node.cpp \
   D:/Codes/ClassHomework/Automation/basic_types/Node.hpp \
-  D:/Codes/ClassHomework/Automation/basic_types/macros.hpp
+  D:/Codes/ClassHomework/Automation/basic_types/macros.hpp \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/map \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals_core.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/sal.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/concurrencysal.h \
+  D:/Libs/LLVM/lib/clang/17/include/vadefs.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vadefs.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xkeycheck.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint \
+  D:/Libs/LLVM/lib/clang/17/include/stdint.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef \
+  D:/Libs/LLVM/lib/clang/17/include/stddef.h \
+  D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_math.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdlib.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_malloc.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstdlib.h \
+  D:/Libs/LLVM/lib/clang/17/include/limits.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/crtdbg.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new_debug.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/use_ansi.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstring \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/string.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_memory.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_memcpy_s.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/errno.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_string.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstring.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtree \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cfloat \
+  D:/Libs/LLVM/lib/clang/17/include/float.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cwchar \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdio \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdio.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstdio.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_stdio_config.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/wchar.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wconio.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wctype.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wdirect.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wio.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_share.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wprocess.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wtime.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/stat.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/types.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.inl.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/isa_availability.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/new \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/exception \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/malloc.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_exception.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/eh.h \
+  C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_terminate.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xatomic.h \
+  D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/set
 
 
 D:/Codes/ClassHomework/Automation/basic_types/Edge.cpp:
@@ -198,13 +278,7 @@ D:/Codes/ClassHomework/Automation/basic_types/Edge.hpp:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime.h:
 
-D:/Libs/LLVM/lib/clang/17/include/vadefs.h:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_set:
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list:
 
 D:/Codes/ClassHomework/Automation/basic_types/macros.hpp:
 
@@ -212,7 +286,17 @@ D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/
 
 D:/Codes/ClassHomework/Automation/basic_types/Node.hpp:
 
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/map:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits:
+
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/concurrencysal.h:
+
+D:/Libs/LLVM/lib/clang/17/include/vadefs.h:
+
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/float.h:
+
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/math.h:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wconio.h:
 
@@ -222,59 +306,55 @@ D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xkeycheck.h:
 
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple:
+
+D:/Libs/LLVM/lib/clang/17/include/stddef.h:
+
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/wchar.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory:
+
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint:
+
+D:/Libs/LLVM/lib/clang/17/include/stdint.h:
+
+D:/Libs/LLVM/lib/clang/17/include/float.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_map:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef:
+
+D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common:
+
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_math.h:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdio:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/string.h:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xhash:
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstring:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cmath:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wio.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals.h:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/crtdbg.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdint:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xmemory:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/list:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new_debug.h:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/types.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new.h:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/stat.h:
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/exception:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/stdlib.h:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstring:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/crtdefs.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/use_ansi.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstdlib:
-
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_malloc.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/tuple:
-
-D:/Libs/LLVM/lib/clang/17/include/stddef.h:
-
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_search.h:
-
-D:/Libs/LLVM/lib/clang/17/include/__stddef_max_align_t.h:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/errno.h:
 
@@ -284,13 +364,29 @@ D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits.h:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtr1common:
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/yvals.h:
+
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/crtdbg.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new_debug.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vcruntime_new.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/use_ansi.h:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_memory.h:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_memcpy_s.h:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstring.h:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtree:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wdirect.h:
 
@@ -302,9 +398,9 @@ C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wstd
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_stdio_config.h:
 
-C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/wchar.h:
-
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wctype.h:
+
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wio.h:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_share.h:
 
@@ -314,31 +410,15 @@ C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wpro
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_wtime.h:
 
-D:/Libs/LLVM/lib/clang/17/include/stdint.h:
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/stat.h:
 
-D:/Libs/LLVM/lib/clang/17/include/float.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdint.h:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/limits:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/climits:
+C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/sys/types.h:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/intrin0.inl.h:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/isa_availability.h:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xstddef:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_map:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cstddef:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/initializer_list:
-
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/new:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/type_traits:
 
 C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/malloc.h:
 
@@ -350,9 +430,15 @@ C:/Program\ Files\ (x86)/Windows\ Kits/10/Include/10.0.19041.0/ucrt/corecrt_term
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xatomic.h:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xutility:
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/set:
 
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/utility:
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/unordered_set:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xhash:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/cmath:
+
+D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/list:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/vector:
 
@@ -363,12 +449,6 @@ D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/
 D:/Codes/ClassHomework/Automation/basic_types/Map.cpp:
 
 D:/Codes/ClassHomework/Automation/basic_types/Map.hpp:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/map:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/xtree:
-
-D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/set:
 
 D:/Program\ Files\ (x86)/Microsoft\ Visual\ Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/stdexcept:
 
