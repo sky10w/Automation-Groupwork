@@ -13,23 +13,6 @@
 
 BASIC_NAMESPACE_BEGIN
 
-// class Basic_Map
-// {
-// public:
-//     // using Edge_Set = std::set<Edge *>;
-
-// protected:
-//     std::unordered_map<id_t, std::map<val_t, Edge_Set>> _edgeList;
-//     std::unordered_map<id_t, std::map<val_t, Edge_Set>> _reverseEdgeList;
-//     size_t _edgeSize = 0;
-
-//     std::vector<Node *> _nodeList;
-//     std::map<id_t, Node *> _endNode;
-
-//     Node *_startNode;
-//     size_t _nodeSize = 0;
-// };
-
 class Map
 {
 public:
@@ -46,26 +29,24 @@ private:
     size_t _edgeSize = 0;
 
     std::vector<Node*> _nodeList;
-    std::map<id_t, Node*> _endNode;
-
+    std::vector<Node*> _endNode;
     Node* _startNode;
     size_t _nodeSize = 0;
+
     void _insertEdge( id_t __fromNodeId, id_t __toNodeId, val_t __edgeVal );
     void _insertReverseEdge( id_t __fromId, id_t __toId, val_t __edgeVal );
+    Node* _getNode( id_t __id );
+
 
 public:
     Map();
     Map( size_t __nodeSize );
     void insertEdge( id_t __fromNodeId, id_t __toNodeId, val_t __edgeVal );
     id_t insertNode( node_t __nodeType );
-};
-
-// 该类为所有转换嘞的接口，
-// 所有的转换都最好通过 “新建类，继承该接口，并重写该类的convert成员函数” 来实现
-class Converter
-{
-public:
-    virtual Map convert() = 0;
+    id_t expand( id_t __fromId, val_t __edgeVal );
+    void eraseEdge( id_t __fromId, id_t __toId, val_t __edgeVal );
+    void eraseNode( id_t __target );
+    id_t begin();
 };
 
 BASIC_NAMESPACE_END
