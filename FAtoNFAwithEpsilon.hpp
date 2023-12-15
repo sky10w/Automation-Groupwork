@@ -3,6 +3,7 @@
 
 #include "basic_types/Map.hpp"
 #include <stack>
+#include <list>
 
 class ConvertFAtoNFAEpsilon
 {

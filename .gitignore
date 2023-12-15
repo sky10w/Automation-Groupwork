@@ -33,3 +33,15 @@
 
 # .vscode
 /.vscode
+
+# test.cpp
+/test.cpp
+
+# build
+/build
+
+# design.md
+/design.md
+
+# view.drawio
+/view.drawio
