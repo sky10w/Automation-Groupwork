@@ -1,0 +1,6 @@
+D:/Codes/ClassHomework/Automation/build/CMakeFiles/main.dir
+D:/Codes/ClassHomework/Automation/build/CMakeFiles/edit_cache.dir
+D:/Codes/ClassHomework/Automation/build/CMakeFiles/rebuild_cache.dir
+D:/Codes/ClassHomework/Automation/build/basic_types/CMakeFiles/basic_types.dir
+D:/Codes/ClassHomework/Automation/build/basic_types/CMakeFiles/edit_cache.dir
+D:/Codes/ClassHomework/Automation/build/basic_types/CMakeFiles/rebuild_cache.dir
