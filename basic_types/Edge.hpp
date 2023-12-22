@@ -2,19 +2,61 @@
 #define __EDGE_HPP__
 
 #include "macros.hpp"
-#include "Node.hpp"
-#include <unordered_set>
+#include <set>
+#include <stdexcept>
 
 BASIC_NAMESPACE_BEGIN
 
+
+template <typename _T>
+struct Edge;
+template <typename _T>
+struct RevEdge;
+
+template <typename _T>
 struct Edge
 {
-    id_t id;
-    Node *from, *to;
-    std::unordered_set<val_t> valList;
-    Edge(Node *__from, Node *__to, id_t __id);
-    void insertVal(const val_t &__val);
+private:
+    _T* _to;
+    struct RevEdge<_T>* _rev;
+    inline void _access();
+public:
+    _T* to();
+    struct RevEdge<_T>* rev() const;
+    void deprecate() const;
+    inline bool isValid() const;
+
+    Edge<_T> operator=( _T* __to );
+    bool operator==( const _T* __to );
+
+    Edge();
+    Edge( _T* __from, _T* __to );
+    Edge( _T* __to, RevEdge<_T>* __reverse );
+    virtual ~Edge();
 };
+
+template <typename _T>
+struct RevEdge
+{
+private:
+    _T* _to;
+    Edge<_T>* _ori;
+    inline void _access();
+public:
+    _T* to();
+    Edge<_T>* ori() const;
+    void deprecate() const;
+    inline bool isValid() const;
+
+    RevEdge<_T> operator=( _T* __to );
+    bool operator==( const _T* __to );
+
+    RevEdge();
+    RevEdge( _T* __from, _T* __to );
+    RevEdge( _T* __to, Edge<_T>* __origin );
+    virtual ~RevEdge();
+};
+
 
 BASIC_NAMESPACE_END
 

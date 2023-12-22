@@ -138,14 +138,14 @@ ato::Map ConvertFAtoNFAEpsilon::convert( const std::string& __re )
             ato::Map tempMp;
             tempMp.insertNode( ato::node_t::START );
             tempMp.insertNode( ato::node_t::END );
-            tempMp.insertEdge( tempMp.begin(), *( tempMp.last().begin() ), item );
+            // tempMp.insertEdge( tempMp.begin(), *( tempMp.last().begin() ), item );
             numStk.push( { item , tempMp } );
 
         } else if (item == '*')
         {
             auto tar = numStk.top();
             auto& mp = tar.second;
-            mp.insertEdge( *( mp.last().begin() ), mp.begin(), ato::EPSILON );
+            // mp.insertEdge( *( mp.last().begin() ), mp.begin(), ato::EPSILON );
         } else if (item == '+')
         {
             // 结果中后部的结点
