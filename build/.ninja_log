@@ -9,3 +9,10 @@
 18	1098	7250357688376837	basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj	985941b4ce0ba8f6
 1099	1754	7250357694957957	basic_types/libbasic_types.a	fea126a44580797a
 1754	2292	7250357700282259	main.exe	610217e0c2d58e9a
+2	774	7250360021514915	CMakeFiles/main.dir/FAtoNFAwithEpsilon.cpp.obj	5406c9518a474d6b
+21	863	7250360022404888	basic_types/CMakeFiles/basic_types.dir/Node.cpp.obj	ed07d74f16d54d4a
+11	1074	7250360024494840	basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj	985941b4ce0ba8f6
+1075	1347	7250360027267056	basic_types/libbasic_types.a	fea126a44580797a
+1347	1884	7250360032573536	main.exe	610217e0c2d58e9a
+3	440	7250360640267783	CMakeFiles/main.dir/test.cpp.obj	6461452e1a3d2325
+441	980	7250360645592611	main.exe	610217e0c2d58e9a
