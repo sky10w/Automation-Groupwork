@@ -1,6 +1,8 @@
 #include "Map.hpp"
 
+
 BASIC_NAMESPACE_BEGIN
+
 
 const Node* Map::iterator::get() const
 {
@@ -63,6 +65,11 @@ Map::iterator::iterator( Node* __node )
 Map::iterator::iterator( const iterator& __rhs )
 {
     _m_val = __rhs._m_val;
+}
+
+bool Map::iterator::operator==( const Node* __rhs ) const
+{
+    return this->_m_val == __rhs;
 }
 
 Map::Map()
@@ -298,7 +305,7 @@ Map::iterator Map::end() const
 
 bool Map::empty() const
 {
-    return ( this->_nodeSize == 0 );
+    return this->_nodeSize == 0;
 }
 
 Map& Map::operator=( const Map& __rhs )
@@ -357,6 +364,10 @@ void Map::clear()
 
 void Map::outputTest()
 {
+    if (this->empty())
+    {
+        std::cout << "This Map is empty\n";
+    }
     int cnt = 0;
     std::map<Node*, int> id;
     for (auto& i : _nodeList)

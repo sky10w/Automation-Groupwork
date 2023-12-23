@@ -46,11 +46,11 @@ public:
     void eraseNode( iterator& __target );
 
     // 快捷地创建一个与已有结点相连的结点
-    iterator expandNode( iterator __fromId, val_t __edgeVal );
+    iterator expandNode( iterator __from, val_t __edgeVal );
     // 合并两个结点，并且，将src合并至dest后，src被弃用
     iterator mergeNode( iterator __dest, iterator __src );
 
-    // 在该Map后连接另一个Map
+    // 在该Map后连接另一个Map（不常用）
     void concat( const Map& __rhs );
     // 开始状态
     iterator begin();
@@ -69,6 +69,7 @@ public:
 
 struct Map::iterator
 {
+    bool operator==( const Node* __rhs ) const;
     bool operator==( const iterator& __rhs ) const { return this->_m_val == __rhs._m_val; }
     const iterator& operator=( const iterator& __rhs ) { this->_m_val = __rhs._m_val; return *this; }
     bool operator<( const iterator& __rhs ) const { return this->_m_val < __rhs._m_val; }

@@ -40,8 +40,8 @@
 # design.md
 /design.md
 
-# view.drawio
-/view.drawio
+# .drawio
+*.drawio
 
 # build
 /build
@@ -49,3 +49,7 @@
 # doc
 *.docx
 *.doc
+
+# pictures
+*.png
+*.jpg

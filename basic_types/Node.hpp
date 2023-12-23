@@ -20,6 +20,8 @@ using Node_set = std::set<Node*>;
 
 using Edge_t = Edge<Node>;
 using RevEdge_t = RevEdge<Node>;
+using Edge_ptr = std::shared_ptr<Edge_t>;
+using RevEdge_ptr = std::shared_ptr<RevEdge_t>;
 
 class EdgeCmp
 {

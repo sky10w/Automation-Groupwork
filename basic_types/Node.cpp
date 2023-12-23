@@ -168,7 +168,6 @@ void Node::clear()
         {
             auto& tarNode = *j;
             tarNode->to()->_eraseRevEdge( tarNode->rev(), ( *i ).first );
-            delete ( *j );
             tar.erase( j );
         }
     }
