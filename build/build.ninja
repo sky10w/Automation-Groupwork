@@ -51,21 +51,17 @@ build cmake_object_order_depends_target_main: phony || cmake_object_order_depend
 
 build CMakeFiles/main.dir/FAtoNFAwithEpsilon.cpp.obj: CXX_COMPILER__main_Debug D$:/Codes/ClassHomework/Automation/FAtoNFAwithEpsilon.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles\main.dir\FAtoNFAwithEpsilon.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+  FLAGS = -g
   INCLUDES = -ID:/Codes/ClassHomework/Automation/. -ID:/Codes/ClassHomework/Automation/basic_types
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
-  TARGET_PDB = main.pdb
 
 build CMakeFiles/main.dir/test.cpp.obj: CXX_COMPILER__main_Debug D$:/Codes/ClassHomework/Automation/test.cpp || cmake_object_order_depends_target_main
   DEP_FILE = CMakeFiles\main.dir\test.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+  FLAGS = -g
   INCLUDES = -ID:/Codes/ClassHomework/Automation/. -ID:/Codes/ClassHomework/Automation/basic_types
   OBJECT_DIR = CMakeFiles\main.dir
   OBJECT_FILE_DIR = CMakeFiles\main.dir
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
-  TARGET_PDB = main.pdb
 
 
 # =============================================================================
@@ -75,17 +71,15 @@ build CMakeFiles/main.dir/test.cpp.obj: CXX_COMPILER__main_Debug D$:/Codes/Class
 #############################################
 # Link the executable main.exe
 
-build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/FAtoNFAwithEpsilon.cpp.obj CMakeFiles/main.dir/test.cpp.obj | basic_types/basic_types.lib || basic_types/basic_types.lib
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
-  LINK_FLAGS = -Xlinker /subsystem:console
-  LINK_LIBRARIES = basic_types/basic_types.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
+build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/FAtoNFAwithEpsilon.cpp.obj CMakeFiles/main.dir/test.cpp.obj | basic_types/libbasic_types.a || basic_types/libbasic_types.a
+  FLAGS = -g
+  LINK_LIBRARIES = basic_types/libbasic_types.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\main.dir\
   TARGET_FILE = main.exe
-  TARGET_IMPLIB = main.lib
-  TARGET_PDB = main.pdb
+  TARGET_IMPLIB = libmain.dll.a
+  TARGET_PDB = main.exe.dbg
 
 
 #############################################
@@ -127,21 +121,17 @@ build cmake_object_order_depends_target_basic_types: phony || basic_types/CMakeF
 
 build basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj: CXX_COMPILER__basic_types_Debug D$:/Codes/ClassHomework/Automation/basic_types/Map.cpp || cmake_object_order_depends_target_basic_types
   DEP_FILE = basic_types\CMakeFiles\basic_types.dir\Map.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall
+  FLAGS = -g -Wall
   INCLUDES = -ID:/Codes/ClassHomework/Automation/basic_types
   OBJECT_DIR = basic_types\CMakeFiles\basic_types.dir
   OBJECT_FILE_DIR = basic_types\CMakeFiles\basic_types.dir
-  TARGET_COMPILE_PDB = basic_types\CMakeFiles\basic_types.dir\basic_types.pdb
-  TARGET_PDB = basic_types\basic_types.pdb
 
 build basic_types/CMakeFiles/basic_types.dir/Node.cpp.obj: CXX_COMPILER__basic_types_Debug D$:/Codes/ClassHomework/Automation/basic_types/Node.cpp || cmake_object_order_depends_target_basic_types
   DEP_FILE = basic_types\CMakeFiles\basic_types.dir\Node.cpp.obj.d
-  FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Wall
+  FLAGS = -g -Wall
   INCLUDES = -ID:/Codes/ClassHomework/Automation/basic_types
   OBJECT_DIR = basic_types\CMakeFiles\basic_types.dir
   OBJECT_FILE_DIR = basic_types\CMakeFiles\basic_types.dir
-  TARGET_COMPILE_PDB = basic_types\CMakeFiles\basic_types.dir\basic_types.pdb
-  TARGET_PDB = basic_types\basic_types.pdb
 
 
 # =============================================================================
@@ -149,16 +139,15 @@ build basic_types/CMakeFiles/basic_types.dir/Node.cpp.obj: CXX_COMPILER__basic_t
 
 
 #############################################
-# Link the static library basic_types\basic_types.lib
+# Link the static library basic_types\libbasic_types.a
 
-build basic_types/basic_types.lib: CXX_STATIC_LIBRARY_LINKER__basic_types_Debug basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj basic_types/CMakeFiles/basic_types.dir/Node.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
+build basic_types/libbasic_types.a: CXX_STATIC_LIBRARY_LINKER__basic_types_Debug basic_types/CMakeFiles/basic_types.dir/Map.cpp.obj basic_types/CMakeFiles/basic_types.dir/Node.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = basic_types\CMakeFiles\basic_types.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = basic_types\CMakeFiles\basic_types.dir\basic_types.pdb
-  TARGET_FILE = basic_types\basic_types.lib
-  TARGET_PDB = basic_types\basic_types.pdb
+  TARGET_FILE = basic_types\libbasic_types.a
+  TARGET_PDB = basic_types.a.dbg
 
 
 #############################################
@@ -187,9 +176,9 @@ build basic_types/rebuild_cache: phony basic_types/CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build basic_types: phony basic_types/basic_types.lib
+build basic_types: phony basic_types/libbasic_types.a
 
-build basic_types.lib: phony basic_types/basic_types.lib
+build libbasic_types.a: phony basic_types/libbasic_types.a
 
 build main: phony main.exe
 
@@ -208,7 +197,7 @@ build all: phony main.exe basic_types/all
 #############################################
 # Folder: D:/Codes/ClassHomework/Automation/build/basic_types
 
-build basic_types/all: phony basic_types/basic_types.lib
+build basic_types/all: phony basic_types/libbasic_types.a
 
 # =============================================================================
 # Built-in targets
@@ -217,14 +206,14 @@ build basic_types/all: phony basic_types/basic_types.lib
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.25.0/CMakeCXXCompiler.cmake CMakeFiles/3.25.0/CMakeRCCompiler.cmake CMakeFiles/3.25.0/CMakeSystem.cmake D$:/Codes/ClassHomework/Automation/CMakeLists.txt D$:/Codes/ClassHomework/Automation/basic_types/CMakeLists.txt D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineRCCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeGenericSystem.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeNinjaFindMake.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeRCCompiler.cmake.in D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeRCInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystem.cmake.in D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeTestRCCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-CXX-FeatureTests.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-CXX-TestableFeatures.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-FindBinUtils.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-Clang-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-Clang.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-Determine-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake
+build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.25.0/CMakeCXXCompiler.cmake CMakeFiles/3.25.0/CMakeRCCompiler.cmake CMakeFiles/3.25.0/CMakeSystem.cmake D$:/Codes/ClassHomework/Automation/CMakeLists.txt D$:/Codes/ClassHomework/Automation/basic_types/CMakeLists.txt D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeGenericSystem.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeRCInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GNU.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-GNU-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-GNU.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-windres.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build CMakeCache.txt CMakeFiles/3.25.0/CMakeCXXCompiler.cmake CMakeFiles/3.25.0/CMakeRCCompiler.cmake CMakeFiles/3.25.0/CMakeSystem.cmake D$:/Codes/ClassHomework/Automation/CMakeLists.txt D$:/Codes/ClassHomework/Automation/basic_types/CMakeLists.txt D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXCompiler.cmake.in D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCompilerIdDetection.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCXXCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompileFeatures.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompilerABI.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineCompilerId.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineRCCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeDetermineSystem.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeFindBinUtils.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeGenericSystem.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeNinjaFindMake.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeParseImplicitIncludeInfo.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeParseImplicitLinkInfo.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeParseLibraryArchitecture.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeRCCompiler.cmake.in D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeRCInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystem.cmake.in D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeTestCXXCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeTestCompilerCommon.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeTestRCCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/ADSP-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/ARMCC-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/ARMClang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/AppleClang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Borland-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-CXX-FeatureTests.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-CXX-TestableFeatures.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-DetermineCompilerInternal.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang-FindBinUtils.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Clang.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Cray-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Embarcadero-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Fujitsu-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GHS-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/HP-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IAR-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Intel-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/MSVC-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/NVHPC-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/NVIDIA-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/PGI-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/PathScale-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/SCO-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/TI-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Tasking-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/Watcom-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/XL-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Internal/FeatureTesting.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-Clang-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-Clang.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-Determine-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake: phony
+build CMakeCache.txt CMakeFiles/3.25.0/CMakeCXXCompiler.cmake CMakeFiles/3.25.0/CMakeRCCompiler.cmake CMakeFiles/3.25.0/CMakeSystem.cmake D$:/Codes/ClassHomework/Automation/CMakeLists.txt D$:/Codes/ClassHomework/Automation/basic_types/CMakeLists.txt D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCXXInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeGenericSystem.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeRCInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Compiler/GNU.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-GNU-CXX-ABI.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-GNU-CXX.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-GNU.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows-windres.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/Windows.cmake D$:/Tools/cmake-3.25.0-windows-i386/share/cmake-3.25/Modules/Platform/WindowsPaths.cmake: phony
 
 
 #############################################

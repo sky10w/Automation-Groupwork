@@ -8,8 +8,6 @@ project(
 )
 
 aux_source_directory(. SRC)
-# set(SRC ./test.cpp)
-# set(CMAKE_GENERATOR "MinGW Makefile")
 
 add_subdirectory(basic_types)
 

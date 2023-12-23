@@ -17,7 +17,7 @@
 rule CXX_COMPILER__main_Debug
   depfile = $DEP_FILE
   deps = gcc
-  command = D:\Libs\LLVM\bin\clang++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = D:\Libs\w64devkit\bin\g++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -25,7 +25,7 @@ rule CXX_COMPILER__main_Debug
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__main_Debug
-  command = cmd.exe /C "$PRE_LINK && D:\Libs\LLVM\bin\clang++.exe -fuse-ld=lld-link -nostartfiles -nostdlib $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Xlinker /MANIFEST:EMBED -Xlinker /implib:$TARGET_IMPLIB -Xlinker /pdb:$TARGET_PDB -Xlinker /version:0.0  $LINK_PATH $LINK_LIBRARIES $MANIFESTS && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && D:\Libs\w64devkit\bin\g++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -44,7 +44,7 @@ rule CUSTOM_COMMAND
 rule CXX_COMPILER__basic_types_Debug
   depfile = $DEP_FILE
   deps = gcc
-  command = D:\Libs\LLVM\bin\clang++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = D:\Libs\w64devkit\bin\g++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -52,7 +52,7 @@ rule CXX_COMPILER__basic_types_Debug
 # Rule for linking CXX static library.
 
 rule CXX_STATIC_LIBRARY_LINKER__basic_types_Debug
-  command = cmd.exe /C "$PRE_LINK && D:\Tools\cmake-3.25.0-windows-i386\bin\cmake.exe -E rm -f $TARGET_FILE && D:\Libs\LLVM\bin\llvm-ar.exe qc $TARGET_FILE $LINK_FLAGS $in && D:\Libs\LLVM\bin\llvm-ranlib.exe $TARGET_FILE && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && D:\Tools\cmake-3.25.0-windows-i386\bin\cmake.exe -E rm -f $TARGET_FILE && D:\Libs\w64devkit\bin\ar.exe qc $TARGET_FILE $LINK_FLAGS $in && D:\Libs\w64devkit\bin\ranlib.exe $TARGET_FILE && $POST_BUILD"
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
