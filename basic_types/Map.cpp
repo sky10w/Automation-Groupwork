@@ -7,6 +7,11 @@ const Node* Map::iterator::get() const
     return this->_m_val;
 }
 
+node_t Map::iterator::type() const
+{
+    return _m_val->type;
+}
+
 Map::iterator_set Map::iterator::next( val_t __val ) const
 {
     iterator_set temp;
@@ -115,10 +120,10 @@ void Map::insertEdge( Map::iterator __from, Map::iterator __to, val_t __edgeVal 
 {
     __from->insertEdge( __to._m_val, __edgeVal );
 
-    if (__to->type == ato::node_t::START)
+    if (__to.type() == ato::node_t::START)
     {
-        __to->type = ato::node_t::MIDDLE;
-        __from->type = ato::node_t::START;
+        this->setNodeType( __to, node_t::MIDDLE );
+        this->setNodeType( __from, node_t::START );
     }
     _edgeSize++;
 }
@@ -148,14 +153,25 @@ Map::iterator Map::insertNode( node_t __nodeType )
 
 void Map::setNodeType( iterator __tar, node_t __nodeType )
 {
+    if (__tar->type == __nodeType) return;
+
     if (__tar->type == node_t::END && __nodeType != node_t::END)
     {
         _endNode.erase( _endNode.find( __tar._m_val ) );
+    } else if (__tar->type == node_t::END && __nodeType != node_t::END)
+    {
+        _endNode.insert( &( *__tar ) );
     }
     if (__tar->type == node_t::START && __nodeType != node_t::START)
     {
         _startNode = nullptr;
+    } else if (__nodeType == node_t::START && __tar->type != node_t::START)
+    {
+        // 改变startNode
+        _startNode->type = ato::node_t::MIDDLE;
+        _startNode = &( *__tar );
     }
+
     __tar->type = __nodeType;
 
 }
@@ -169,6 +185,7 @@ Map::iterator Map::expandNode( Map::iterator __from, val_t __edgeVal )
 
 Map::iterator Map::mergeNode( iterator __dest, iterator __src )
 {
+    this->setNodeType( __dest, __src.type() );
     for (auto& i : __src->edge)
     {
         for (auto& edge : i.second)
@@ -223,11 +240,11 @@ void Map::concat( const Map& __rhs )
     auto temp = Map( __rhs );
     auto post = temp._startNode;
     auto& pre = this->_endNode;
-    post->type = node_t::MIDDLE;
+    this->setNodeType( iterator( post ), node_t::MIDDLE );
     for (auto& i : pre)
     {
         i->insertEdge( post, EPSILON );
-        i->type = node_t::MIDDLE;
+        this->setNodeType( iterator( i ), node_t::MIDDLE );
     }
 }
 
@@ -254,12 +271,12 @@ Map Map::concat( const Map& __a, const Map& __b )
         std::cout << "Warning: the startNode of left Map is nullptr" << '\n';
     } else
     {
-        post->type = node_t::MIDDLE;
+        tempB.setNodeType( iterator( post ), node_t::MIDDLE );
     }
     for (auto& i : pre)
     {
         i->insertEdge( post, EPSILON );
-        i->type = node_t::MIDDLE;
+        tempA.setNodeType( iterator( i ), node_t::MIDDLE );
     }
     return tempA;
 }

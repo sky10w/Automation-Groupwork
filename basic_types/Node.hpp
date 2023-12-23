@@ -16,10 +16,6 @@ class Edge;
 template <typename _T>
 class RevEdge;
 
-// template class Edge<Node>;
-// template class RevEdge<Node>;
-
-
 using Node_set = std::set<Node*>;
 
 using Edge_t = Edge<Node>;

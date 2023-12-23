@@ -45,3 +45,7 @@
 
 # build
 /build
+
+# doc
+*.docx
+*.doc

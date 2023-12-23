@@ -69,13 +69,13 @@ public:
 
 struct Map::iterator
 {
-    Node& operator*() const { return *_m_val; }
     bool operator==( const iterator& __rhs ) const { return this->_m_val == __rhs._m_val; }
     const iterator& operator=( const iterator& __rhs ) { this->_m_val = __rhs._m_val; return *this; }
     bool operator<( const iterator& __rhs ) const { return this->_m_val < __rhs._m_val; }
-    Node* operator->() { return ( this->_m_val ); }
-    // 获得指向实际结点的指针（不建议使用）
+    // 获得指向实际结点的指针（不常用）
     const Node* get() const;
+    // 返回当前结点的类型（开始、中间或结束）
+    node_t type() const;
     // 返回该结点点通过val能到达的结点集合
     iterator_set next( val_t __val ) const;
     // 返回能通过val到达该结点的结点集合
@@ -90,6 +90,8 @@ struct Map::iterator
     friend class Map;
 private:
     Node* _m_val;
+    Node& operator*() const { return *_m_val; }
+    Node* operator->() { return ( this->_m_val ); }
 };
 
 struct Map::iterator_cmp
