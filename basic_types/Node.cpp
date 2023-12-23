@@ -2,13 +2,18 @@
 
 BASIC_NAMESPACE_BEGIN
 
+
+
 Node::Node( id_t __id, node_t __type )
     : id( __id )
     , type( __type )
     , edge()
     , revEdge()
 {}
-
+Node::Node( const Node& __src )
+    : id( __src.id )
+    , type( __src.type )
+{}
 
 /**
  *  Find next Nodes
@@ -39,7 +44,7 @@ RevEdge_set Node::revNext( val_t __val )
 */
 void Node::insertEdge( Node* __to, val_t __val )
 {
-    auto temp = new Edge( this, __to );
+    auto temp = new Edge_t( this, __to );
     // Insert an Edge into this Node
     this->_insertEdge( temp, __val );
     // Insert a revEdge into target Node
@@ -47,7 +52,7 @@ void Node::insertEdge( Node* __to, val_t __val )
 }
 void Node::insertRevEdge( Node* __to, val_t __val )
 {
-    auto temp = new RevEdge( this, __to );
+    auto temp = new RevEdge_t( this, __to );
     this->_insertRevEdge( temp, __val );
     __to->_insertEdge( temp->ori(), __val );
 }
@@ -60,9 +65,9 @@ void Node::_insertEdge( Edge_t* __ori, val_t __val )
     } else
     {
         auto res2 = this->edge[__val].insert( __ori );
-        if (res2.second == true)
+        if (res2.second == false)
         {
-            std::cerr << "A repeated Edge inserted" << '\n';
+            std::cerr << "A repeated Edge from\t" << __ori->rev()->to() << " to " << __ori->to() << " inserted" << '\n';
         }
     }
 }
@@ -75,9 +80,9 @@ void Node::_insertRevEdge( RevEdge_t* __rev, val_t __val )
     } else
     {
         auto res2 = this->revEdge[__val].insert( __rev );
-        if (res2.second == true)
+        if (res2.second == false)
         {
-            std::cerr << "A repeated Edge inserted" << '\n';
+            std::cerr << "A repeated RevEdge from\t" << __rev->ori()->to() << " to " << __rev->to() << " inserted" << '\n';
         }
     }
 }
@@ -89,21 +94,16 @@ void Node::eraseEdge( Node* __to, val_t __val )
         std::cerr << "Cannot erase a non-exist Edge" << '\n';
         return;
     }
-    Edge_t* tar = nullptr;
-    for (auto& i : this->edge[__val])
-    {
-        if (i->to() == __to)
-        {
-            tar = i;
-        }
-    }
-    if (tar == nullptr)
+
+    auto temp = Edge_t::generateTemp( __to );
+    auto tar = this->edge[__val].find( &temp );
+    if (tar == this->edge[__val].end())
     {
         std::cerr << "Cannot erase a non-exist Edge" << '\n';
         return;
     }
-    RevEdge_t* tarRev = tar->rev();
-    this->_eraseEdge( tar, __val );
+    RevEdge_t* tarRev = ( *tar )->rev();
+    this->_eraseEdge( *tar, __val );
     __to->_eraseRevEdge( tarRev, __val );
 }
 void Node::eraseRevEdge( Node* __to, val_t __val )
@@ -113,21 +113,17 @@ void Node::eraseRevEdge( Node* __to, val_t __val )
         std::cerr << "Cannot erase a non-exist Edge" << '\n';
         return;
     }
-    RevEdge_t* tar = nullptr;
-    for (auto& i : this->revEdge[__val])
-    {
-        if (i->to() == __to)
-        {
-            tar = i;
-        }
-    }
-    if (tar == nullptr)
+
+    auto temp = RevEdge_t::generateTemp( __to );
+    auto tar = this->revEdge[__val].find( &temp );
+
+    if (tar == this->revEdge[__val].end())
     {
         std::cerr << "Cannot erase a non-exist Edge" << '\n';
         return;
     }
-    Edge_t* tarOri = tar->ori();
-    this->_eraseRevEdge( tar, __val );
+    Edge_t* tarOri = ( *tar )->ori();
+    this->_eraseRevEdge( *tar, __val );
     __to->_eraseEdge( tarOri, __val );
 }
 void Node::_eraseEdge( Edge_t* __ori, val_t __val )
@@ -186,120 +182,21 @@ const Node& Node::operator=( const Node& __rhs )
     this->type = __rhs.type;
     return *this;
 }
+
 Node::~Node()
 {
     this->clear();
 }
 
-// // Edge Container
 
-// void EdgeContainer::_access()
-// {
-//     if (this->empty())
-//     {
-//         throw std::runtime_error( "Cannot get access to a nullptr" );
-//     }
-// }
-
-// EdgeContainer::EdgeContainer( Node* __from, Node* __to )
-//     :_M_edge( new Edge_t( __from, __to ) )
-// {}
-
-// EdgeContainer::EdgeContainer( EdgeContainer& __rhs )
-//     : _M_edge( __rhs._M_edge )
-// {
-//     __rhs._M_edge = nullptr;
-// }
-
-// EdgeContainer::EdgeContainer( EdgeContainer&& __rhs )
-//     : _M_edge( __rhs._M_edge )
-// {
-//     __rhs._M_edge = nullptr;
-// }
-
-// EdgeContainer::EdgeContainer( Edge_t* __val )
-//     : _M_edge( __val )
-// {}
-
-// bool EdgeContainer::empty()
-// {
-//     return _M_edge == nullptr;
-// }
-
-// RevEdgeContainer EdgeContainer::rev()
-// {
-//     _access();
-//     return _M_edge->rev();
-// }
-
-// Node* EdgeContainer::to()
-// {
-//     _access();
-//     return _M_edge->to();
-// }
-
-// EdgeContainer::~EdgeContainer()
-// {
-//     if (_M_edge != nullptr)
-//     {
-//         delete _M_edge;
-//         _M_edge = nullptr;
-//     }
-// }
-
-
-// // Rev Container
-
-// void RevEdgeContainer::_access()
-// {
-//     if (this->empty())
-//     {
-//         throw std::runtime_error( "Cannot get access to a nullptr" );
-//     }
-// }
-
-// RevEdgeContainer::RevEdgeContainer( RevEdgeContainer& __rhs )
-//     : _M_edge( __rhs._M_edge )
-// {
-//     __rhs._M_edge = nullptr;
-// }
-
-// RevEdgeContainer::RevEdgeContainer( RevEdgeContainer&& __rhs )
-//     :_M_edge( __rhs._M_edge )
-// {
-//     __rhs._M_edge = nullptr
-// }
-
-// RevEdgeContainer::RevEdgeContainer( RevEdge_t* __edge )
-//     : _M_edge( __edge )
-// {}
-
-// bool RevEdgeContainer::empty()
-// {
-//     return _M_edge == nullptr;
-// }
-
-// EdgeContainer RevEdgeContainer::ori()
-// {
-//     _access();
-//     return EdgeContainer( _M_edge->ori() );
-// }
-
-// Node* RevEdgeContainer::to()
-// {
-//     _access();
-//     return _M_edge->to();
-// }
-
-// RevEdgeContainer::~RevEdgeContainer()
-// {
-//     if (_M_edge != nullptr)
-//     {
-//         delete _M_edge;
-//         _M_edge = nullptr;
-//     }
-// }
+bool EdgeCmp::operator()( Edge_t* __a, Edge_t* __b ) const
+{
+    return __a->to() < __b->to();
+}
+bool RevEdgeCmp::operator()( RevEdge_t* __a, RevEdge_t* __b ) const
+{
+    return __a->to() < __b->to();
+}
 
 BASIC_NAMESPACE_END
-
 

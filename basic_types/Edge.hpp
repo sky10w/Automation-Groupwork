@@ -1,32 +1,35 @@
-#if !defined(__EDGE_HPP__)
-#define __EDGE_HPP__
+#ifndef __M_EDGE_HPP__
+#define __M_EDGE_HPP__
 
 #include "macros.hpp"
 #include <set>
-#include <stdexcept>
+#include <iostream>
 
 BASIC_NAMESPACE_BEGIN
 
 
 template <typename _T>
-struct Edge;
+class Edge;
 template <typename _T>
-struct RevEdge;
+class RevEdge;
 
 template <typename _T>
-struct Edge
+class Edge
 {
 private:
     _T* _to;
-    struct RevEdge<_T>* _rev;
+    RevEdge<_T>* _rev;
     inline void _access();
+    Edge( _T* __to );
 public:
+    static Edge<_T> generateTemp( _T* __to );
     _T* to();
-    struct RevEdge<_T>* rev() const;
-    void deprecate() const;
+    RevEdge<_T>* rev();
+    inline void deprecate();
     inline bool isValid() const;
+    void setTo( _T* __to );
 
-    Edge<_T> operator=( _T* __to );
+    Edge<_T>& operator=( _T* __to );
     bool operator==( const _T* __to );
 
     Edge();
@@ -36,19 +39,22 @@ public:
 };
 
 template <typename _T>
-struct RevEdge
+class RevEdge
 {
 private:
     _T* _to;
     Edge<_T>* _ori;
     inline void _access();
+    RevEdge( _T* __to );
 public:
+    static RevEdge<_T> generateTemp( _T* __to );
     _T* to();
-    Edge<_T>* ori() const;
-    void deprecate() const;
+    Edge<_T>* ori();
+    inline void deprecate();
     inline bool isValid() const;
+    void setTo( _T* __to );
 
-    RevEdge<_T> operator=( _T* __to );
+    RevEdge<_T>& operator=( _T* __to );
     bool operator==( const _T* __to );
 
     RevEdge();
@@ -57,7 +63,6 @@ public:
     virtual ~RevEdge();
 };
 
-
 BASIC_NAMESPACE_END
 
-#endif // __EDGE_HPP__
+#endif // __EDGE_HPP__}

@@ -13,32 +13,20 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 The CXX compiler identification is Clang, found in "D:/Codes/ClassHomework/Automation/build/CMakeFiles/3.25.0/CompilerIdCXX/a.exe"
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-6uinpn
+Change Dir: D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-zc79fr
 
-Run Build Command(s):D:/Libs/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_4e15b/fast && make  -f CMakeFiles\cmTC_4e15b.dir\build.make CMakeFiles/cmTC_4e15b.dir/build
-make[1]: Entering directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-6uinpn'
-Building CXX object CMakeFiles/cmTC_4e15b.dir/CMakeCXXCompilerABI.cpp.obj
-D:\Libs\LLVM\bin\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -MD -MT CMakeFiles/cmTC_4e15b.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\cmTC_4e15b.dir\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\cmTC_4e15b.dir\CMakeCXXCompilerABI.cpp.obj -c D:\Tools\cmake-3.25.0-windows-i386\share\cmake-3.25\Modules\CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_4e15b.exe
-D:\Tools\cmake-3.25.0-windows-i386\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTC_4e15b.dir\link.txt --verbose=1
-D:\Libs\LLVM\bin\clang++.exe -fuse-ld=lld-link -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console @CMakeFiles\cmTC_4e15b.dir\objects1 -o cmTC_4e15b.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_4e15b.lib -Xlinker /pdb:D:\Codes\ClassHomework\Automation\build\CMakeFiles\CMakeScratch\TryCompile-6uinpn\cmTC_4e15b.pdb -Xlinker /version:0.0  
-make[1]: Leaving directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-6uinpn'
+Run Build Command(s):D:/Libs/Ninja/ninja.exe cmTC_d1e5e && [1/2] Building CXX object CMakeFiles/cmTC_d1e5e.dir/CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_d1e5e.exe
 
 
 
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-8ltx7e
+Change Dir: D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-5qfpd6
 
-Run Build Command(s):D:/Libs/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_25525/fast && make  -f CMakeFiles\cmTC_25525.dir\build.make CMakeFiles/cmTC_25525.dir/build
-make[1]: Entering directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-8ltx7e'
-Building CXX object CMakeFiles/cmTC_25525.dir/feature_tests.cxx.obj
-D:\Libs\LLVM\bin\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_25525.dir/feature_tests.cxx.obj -MF CMakeFiles\cmTC_25525.dir\feature_tests.cxx.obj.d -o CMakeFiles\cmTC_25525.dir\feature_tests.cxx.obj -c D:\Codes\ClassHomework\Automation\build\CMakeFiles\CMakeScratch\TryCompile-8ltx7e\feature_tests.cxx
-Linking CXX executable cmTC_25525.exe
-D:\Tools\cmake-3.25.0-windows-i386\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTC_25525.dir\link.txt --verbose=1
-D:\Libs\LLVM\bin\clang++.exe -fuse-ld=lld-link -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console @CMakeFiles\cmTC_25525.dir\objects1 -o cmTC_25525.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_25525.lib -Xlinker /pdb:D:\Codes\ClassHomework\Automation\build\CMakeFiles\CMakeScratch\TryCompile-8ltx7e\cmTC_25525.pdb -Xlinker /version:0.0  @CMakeFiles\cmTC_25525.dir\linkLibs.rsp 
-make[1]: Leaving directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-8ltx7e'
+Run Build Command(s):D:/Libs/Ninja/ninja.exe cmTC_97eb0 && [1/2] Building CXX object CMakeFiles/cmTC_97eb0.dir/feature_tests.cxx.obj
+[2/2] Linking CXX executable cmTC_97eb0.exe
 
 
 
@@ -101,16 +89,10 @@ make[1]: Leaving directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/C
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-8nryny
+Change Dir: D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-bfd19p
 
-Run Build Command(s):D:/Libs/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_f88be/fast && make  -f CMakeFiles\cmTC_f88be.dir\build.make CMakeFiles/cmTC_f88be.dir/build
-make[1]: Entering directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-8nryny'
-Building CXX object CMakeFiles/cmTC_f88be.dir/feature_tests.cxx.obj
-D:\Libs\LLVM\bin\clang++.exe   -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd   -std=c++14 -MD -MT CMakeFiles/cmTC_f88be.dir/feature_tests.cxx.obj -MF CMakeFiles\cmTC_f88be.dir\feature_tests.cxx.obj.d -o CMakeFiles\cmTC_f88be.dir\feature_tests.cxx.obj -c D:\Codes\ClassHomework\Automation\build\CMakeFiles\CMakeScratch\TryCompile-8nryny\feature_tests.cxx
-Linking CXX executable cmTC_f88be.exe
-D:\Tools\cmake-3.25.0-windows-i386\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTC_f88be.dir\link.txt --verbose=1
-D:\Libs\LLVM\bin\clang++.exe -fuse-ld=lld-link -nostartfiles -nostdlib -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -Xlinker /subsystem:console @CMakeFiles\cmTC_f88be.dir\objects1 -o cmTC_f88be.exe -Xlinker /MANIFEST:EMBED -Xlinker /implib:cmTC_f88be.lib -Xlinker /pdb:D:\Codes\ClassHomework\Automation\build\CMakeFiles\CMakeScratch\TryCompile-8nryny\cmTC_f88be.pdb -Xlinker /version:0.0  @CMakeFiles\cmTC_f88be.dir\linkLibs.rsp 
-make[1]: Leaving directory 'D:/Codes/ClassHomework/Automation/build/CMakeFiles/CMakeScratch/TryCompile-8nryny'
+Run Build Command(s):D:/Libs/Ninja/ninja.exe cmTC_32257 && [1/2] Building CXX object CMakeFiles/cmTC_32257.dir/feature_tests.cxx.obj
+[2/2] Linking CXX executable cmTC_32257.exe
 
 
 

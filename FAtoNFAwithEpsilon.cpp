@@ -1,16 +1,13 @@
-#include <iostream>
-#include <stack>
-#include "basic_types/Map.hpp"
 #include "FAtoNFAwithEpsilon.hpp"
 
-const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::leftBracket = { '(' };
-const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::rightBracket = { ')' };
-const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::plus = { '+' };
-const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::concat = { '&' };
-const ConvertFAtoNFAEpsilon::item_t ConvertFAtoNFAEpsilon::loop = { '*' };
+const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::leftBracket = { '(' };
+const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::rightBracket = { ')' };
+const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::plus = { '+' };
+const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::concat = { '&' };
+const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::loop = { '*' };
 
 // Fully Tested
-std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( const std::string& __re )
+std::list<ConvertREtoNFAEpsilon::item_t> ConvertREtoNFAEpsilon::_midToPost( const std::string& __re )
 {
     // item_t tempList;
     std::stack<item_t> signStk;
@@ -70,14 +67,14 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
         case ')':
             if (signStk.empty())
             {
-                throw std::runtime_error( "The brackets don\'t match" );
+                std::cerr << "The brackets don\'t match\n";
             }
 
             while (signStk.top() != leftBracket)
             {
                 if (signStk.empty())
                 {
-                    throw std::runtime_error( "The brackets don\'t match" );
+                    std::cerr << "The brackets don\'t match\n";
                 }
                 resList.push_back( signStk.top() );
                 signStk.pop();
@@ -86,7 +83,7 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
             // pop out the left bracket
             if (signStk.empty())
             {
-                throw std::runtime_error( "The brackets don\'t match" );
+                std::cerr << "The brackets don\'t match\n";
             }
             signStk.pop();
             break;
@@ -116,49 +113,68 @@ std::list<ConvertFAtoNFAEpsilon::item_t> ConvertFAtoNFAEpsilon::_midToPost( cons
     return resList;
 }
 
-void ConvertFAtoNFAEpsilon::testMidToPost( const std::string& __re )
+ConvertREtoNFAEpsilon::ConvertREtoNFAEpsilon()
+{
+    std::cout << "Test\n";
+}
+
+void ConvertREtoNFAEpsilon::testMidToPost( const std::string& __re )
 {
     auto list = _midToPost( __re );
     for (auto& i : list)
     {
         std::cout << i << ' ';
     }
+    std::cout << '\n';
 }
 
-ato::Map ConvertFAtoNFAEpsilon::convert( const std::string& __re )
+ato::Map ConvertREtoNFAEpsilon::convert( const std::string& __re )
 {
     auto itemList = _midToPost( __re );
+    ato::Map mp;
 
-    std::stack<std::pair<item_t, ato::Map>> numStk;
+    std::stack<ato::Map::iterator> startStk;
+    std::stack<ato::Map::iterator> endStk;
 
-    for (int i = 0; auto & item : itemList)
+    startStk.push( mp.insertNode( ato::node_t::START ) );
+    endStk.push( mp.insertNode( ato::node_t::END ) );
+
+    ato::Map::iterator pre = startStk.top();
+
+    for (auto& item : itemList)
     {
         if (item == '0' || item == '1')
         {
-            ato::Map tempMp;
-            tempMp.insertNode( ato::node_t::START );
-            tempMp.insertNode( ato::node_t::END );
-            // tempMp.insertEdge( tempMp.begin(), *( tempMp.last().begin() ), item );
-            numStk.push( { item , tempMp } );
-
+            pre = mp.expandNode( pre, item );
         } else if (item == '*')
         {
-            auto tar = numStk.top();
-            auto& mp = tar.second;
-            // mp.insertEdge( *( mp.last().begin() ), mp.begin(), ato::EPSILON );
-        } else if (item == '+')
-        {
-            // 结果中后部的结点
-            auto tar1 = numStk.top();
-            numStk.pop();
-            // 结果中前部的结点
-            auto tar2 = numStk.top();
-            ato::Map tempMp;
-
+            pre = mp.expandNode( pre, ato::EPSILON );
         }
-
 
     }
     return ato::Map();
 }
 
+// if (item == '0' || item == '1')
+        // {
+        //     ato::Map tempMp;
+        //     tempMp.insertNode( ato::node_t::START );
+        //     tempMp.insertNode( ato::node_t::END );
+        //     // tempMp.insertEdge( tempMp.begin(), *( tempMp.last().begin() ), item );
+        //     numStk.push( { item , tempMp } );
+
+        // } else if (item == '*')
+        // {
+        //     auto tar = numStk.top();
+        //     auto& mp = tar.second;
+        //     // mp.insertEdge( *( mp.last().begin() ), mp.begin(), ato::EPSILON );
+        // } else if (item == '+')
+        // {
+        //     // 结果中后部的结点
+        //     auto tar1 = numStk.top();
+        //     numStk.pop();
+        //     // 结果中前部的结点
+        //     auto tar2 = numStk.top();
+        //     ato::Map tempMp;
+
+        // }

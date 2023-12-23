@@ -2,10 +2,11 @@
 #define __FA_TO_NFAWITHEPSILON_HPP__
 
 #include "basic_types/Map.hpp"
+#include <iostream>
 #include <stack>
 #include <list>
 
-class ConvertFAtoNFAEpsilon
+class ConvertREtoNFAEpsilon
 {
 public:
     using item_t = ato::val_t;
@@ -22,10 +23,11 @@ private:
     std::list<item_t> _midToPost( const std::string& __re );
 
 public:
+    ConvertREtoNFAEpsilon();
     // 仅测试用
     void testMidToPost( const std::string& __re );
 
-    // 输入FA，返回一个带空转移的NFA
+    // 输入RE，返回一个带空转移的NFA
     ato::Map convert( const std::string& __re );
 };
 

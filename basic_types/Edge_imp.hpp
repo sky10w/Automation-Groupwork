@@ -1,43 +1,67 @@
+#ifndef __EDGE_IMP_HPP__
+#define __EDGE_IMP_HPP__
+
 #include "Edge.hpp"
 
 BASIC_NAMESPACE_BEGIN
 
-
 template<typename _T>
 inline bool Edge<_T>::isValid() const
 {
-    return this->_to != nullptr && this->rev != nullptr;
+    return this->_to != nullptr && this->_rev != nullptr;
+}
+template<typename _T>
+inline void Edge<_T>::setTo( _T* __to )
+{
+    this->_to = __to;
 }
 template<typename _T>
 inline void Edge<_T>::_access()
 {
     if (!this->isValid())
     {
-        throw std::runtime_error( "Invalid access to an non-exist Edge" );
+        std::cerr << "Error: Invalid access to a non-exist RevEdge\n";
     }
+}
+template<typename _T>
+Edge<_T>::Edge( _T* __to )
+    : _to( __to )
+    , _rev( nullptr )
+{}
+template<typename _T>
+Edge<_T> Edge<_T>::generateTemp( _T* __to )
+{
+    return Edge<_T>( __to );
 }
 template<typename _T>
 _T* Edge<_T>::to()
 {
-    this->_acess();
+    if (this->_to == nullptr)
+    {
+        std::cerr << "Error: Invalid access to \"to\" pointer\n";
+    }
     return this->_to;
 }
 template <typename _T>
-RevEdge<_T>* Edge<_T>::rev() const
+RevEdge<_T>* Edge<_T>::rev()
 {
-    this->_access();
+    if (this->_rev == nullptr)
+    {
+        std::cerr << "Error: Invalid access to \"rev\" pointer\n";
+    }
     return _rev;
 }
 template<typename _T>
-void Edge<_T>::deprecate() const
+void Edge<_T>::deprecate()
 {
-    this->_to == nullptr;
+    this->_to = nullptr;
 }
 
 template<typename _T>
-Edge<_T> Edge<_T>::operator=( _T* __to )
+Edge<_T>& Edge<_T>::operator=( _T* __to )
 {
-    return this->_to = __to;
+    this->_to = __to;
+    return *this;
 }
 template<typename _T>
 bool Edge<_T>::operator==( const _T* __to )
@@ -79,7 +103,7 @@ RevEdge<_T>::RevEdge()
 template<typename _T>
 RevEdge<_T>::RevEdge( _T* __from, _T* __to )
     : _to( __to )
-    , _rev( new Edge<_T>( __from, this ) )
+    , _ori( new Edge<_T>( __from, this ) )
 {}
 template <typename _T>
 RevEdge<_T>::RevEdge( _T* __to, Edge<_T>* __ori )
@@ -98,9 +122,14 @@ inline void RevEdge<_T>::_access()
 {
     if (!this->isValid())
     {
-        throw std::runtime_error( "Invalid access to a non-exist RevEdge" );
+        std::cerr << "Error: Invalid access to a non-exist RevEdge\n";
     }
 }
+template<typename _T>
+RevEdge<_T>::RevEdge( _T* __to )
+    : _to( __to )
+    , _ori( nullptr )
+{}
 template<typename _T>
 inline bool RevEdge<_T>::isValid() const
 {
@@ -108,26 +137,44 @@ inline bool RevEdge<_T>::isValid() const
 }
 
 template<typename _T>
+inline void RevEdge<_T>::setTo( _T* __to )
+{
+    _to = __to;
+}
+
+template<typename _T>
+RevEdge<_T> RevEdge<_T>::generateTemp( _T* __to )
+{
+    return RevEdge<_T>( __to );
+}
+
+template<typename _T>
 _T* RevEdge<_T>::to()
 {
-    this->_access();
+    if (this->_to == nullptr)
+    {
+        std::cerr << "Error: Invalid access to \"to\" pointer\n";
+    }
     return this->_to;
 }
 template <typename _T>
-Edge<_T>* RevEdge<_T>::ori() const
+Edge<_T>* RevEdge<_T>::ori()
 {
-    this->_access();
+    if (this->_ori == nullptr)
+    {
+        std::cerr << "Error: Invalid access to \"ori\" pointer\n";
+    }
     return this->_ori;
 }
 template<typename _T>
-void RevEdge<_T>::deprecate() const
+void RevEdge<_T>::deprecate()
 {
-    _to == nullptr;
+    _to = nullptr;
 }
 
 
 template<typename _T>
-RevEdge<_T> RevEdge<_T>::operator=( _T* __to )
+RevEdge<_T>& RevEdge<_T>::operator=( _T* __to )
 {
     this->_to = __to;
     return *this;
@@ -142,3 +189,5 @@ bool RevEdge<_T>::operator==( const _T* __to )
 
 BASIC_NAMESPACE_END
 
+
+#endif
