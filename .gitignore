@@ -53,3 +53,7 @@
 # pictures
 *.png
 *.jpg
+
+# document
+*.html
+*.pdf
