@@ -56,6 +56,8 @@ public:
     iterator begin();
     // 返回结束状态的迭代器集合
     iterator_set dest() const;
+    // 返回所有结点的迭代器集合
+    iterator_set all() const;
     // 返回一个iterator(nullptr)，用于判断越界
     iterator end() const;
     // 返回该Map是否为空

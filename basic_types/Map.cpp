@@ -298,6 +298,16 @@ Map::iterator_set Map::dest() const
     return temp;
 }
 
+Map::iterator_set Map::all() const
+{
+    iterator_set temp;
+    for (auto& i : _nodeList)
+    {
+        temp.insert( iterator( i ) );
+    }
+    return temp;
+}
+
 Map::iterator Map::end() const
 {
     return Map::iterator( nullptr );
