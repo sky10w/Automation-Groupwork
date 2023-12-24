@@ -30,3 +30,18 @@
 *.exe
 *.out
 *.app
+
+# .vscode
+/.vscode
+
+# test.cpp
+/test.cpp
+
+# design.md
+/design.md
+
+# view.drawio
+/view.drawio
+
+# build
+/build

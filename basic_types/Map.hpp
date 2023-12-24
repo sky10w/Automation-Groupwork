@@ -1,73 +1,103 @@
-#if !defined(__MAP_HPP__)
-#define __MAP_HPP__
+#pragma once
+#ifndef __M_MAP_HPP__
+#define __M_MAP_HPP__
 
-#include "macros.hpp"
-#include "Edge.hpp"
+#include "Node.hpp"
 #include <unordered_map>
 #include <map>
-#include <vector>
-#include <list>
 #include <set>
-#include <exception>
 #include <stdexcept>
+#include <iostream>
+#include <vector>
 
 BASIC_NAMESPACE_BEGIN
-
-// class Basic_Map
-// {
-// public:
-//     // using Edge_Set = std::set<Edge *>;
-
-// protected:
-//     std::unordered_map<id_t, std::map<val_t, Edge_Set>> _edgeList;
-//     std::unordered_map<id_t, std::map<val_t, Edge_Set>> _reverseEdgeList;
-//     size_t _edgeSize = 0;
-
-//     std::vector<Node *> _nodeList;
-//     std::map<id_t, Node *> _endNode;
-
-//     Node *_startNode;
-//     size_t _nodeSize = 0;
-// };
 
 class Map
 {
 public:
-    using Node_set = std::set<Node*>;
-    using Edge_set = std::map<val_t, Node_set>;
+    struct iterator;
+    struct iterator_cmp;
+    using iterator_set = std::set<struct iterator, struct iterator_cmp>;
 
 private:
-    // 如：edgeList[0][1]是从 0结点 经过 1 能到达的边的集合
-    // 又如：edgeList[0]可以获得0结点的邻接表
-    std::unordered_map<id_t, std::map<val_t, Node_set>> _edgeList;
-
-    // 反向的邻接表，便于获取指向某节点的边
-    std::unordered_map<id_t, std::map<val_t, Node_set>> _reverseEdgeList;
-    size_t _edgeSize = 0;
-
-    std::vector<Node*> _nodeList;
-    std::map<id_t, Node*> _endNode;
-
+    Node_set _nodeList;
+    Node_set _endNode;
     Node* _startNode;
+    size_t _edgeSize = 0;
     size_t _nodeSize = 0;
-    void _insertEdge( id_t __fromNodeId, id_t __toNodeId, val_t __edgeVal );
-    void _insertReverseEdge( id_t __fromId, id_t __toId, val_t __edgeVal );
 
 public:
+    static Map concat( const Map& __a, const Map& __b );
+
     Map();
-    Map( size_t __nodeSize );
-    void insertEdge( id_t __fromNodeId, id_t __toNodeId, val_t __edgeVal );
-    id_t insertNode( node_t __nodeType );
+    Map( const Map& __src );
+    Map( Map&& __src );
+
+    // 创建一条边
+    void insertEdge( iterator __from, iterator __to, val_t __edgeVal );
+    // 创建一个结点
+    iterator insertNode( node_t __nodeType );
+    // 改变结点属性（开始状态，中间状态，结束状态）
+    void setNodeType( iterator __tar, node_t __nodeType );
+
+    // 删除一条边
+    void eraseEdge( iterator __from, iterator __to, val_t __edgeVal );
+    // 删除一个结点，且与之相关的边全部被清除
+    void eraseNode( iterator& __target );
+
+    // 快捷地创建一个与已有结点相连的结点
+    iterator expandNode( iterator __fromId, val_t __edgeVal );
+    // 合并两个结点，并且，将src合并至dest后，src被弃用
+    iterator mergeNode( iterator __dest, iterator __src );
+
+    // 在该Map后连接另一个Map
+    void concat( const Map& __rhs );
+    // 开始状态
+    iterator begin();
+    // 返回结束状态的迭代器集合
+    iterator_set dest() const;
+    iterator end() const;
+    // 返回该Map是否为空
+    bool empty() const;
+
+    Map& operator=( const Map& __rhs );
+
+    void clear();
+    // 测试用输出
+    void outputTest();
 };
 
-// 该类为所有转换嘞的接口，
-// 所有的转换都最好通过 “新建类，继承该接口，并重写该类的convert成员函数” 来实现
-class Converter
+struct Map::iterator
 {
-public:
-    virtual Map convert() = 0;
+    Node& operator*() const { return *_m_val; }
+    bool operator==( const iterator& __rhs ) const { return this->_m_val == __rhs._m_val; }
+    const iterator& operator=( const iterator& __rhs ) { this->_m_val = __rhs._m_val; return *this; }
+    bool operator<( const iterator& __rhs ) const { return this->_m_val < __rhs._m_val; }
+    Node* operator->() { return ( this->_m_val ); }
+    // 获得指向实际结点的指针（不建议使用）
+    const Node* get() const;
+    // 返回该结点点通过val能到达的结点集合
+    iterator_set next( val_t __val ) const;
+    // 返回能通过val到达该结点的结点集合
+    iterator_set revNext( val_t __val ) const;
+    // 弃用该迭代器
+    void deprecate();
+    // 构造函数
+    iterator();
+    explicit iterator( Node* __node );
+    // 复制构造函数
+    iterator( const iterator& __rhs );
+    friend class Map;
+private:
+    Node* _m_val;
 };
+
+struct Map::iterator_cmp
+{
+    bool operator()( Map::iterator a, Map::iterator b ) const;  //仿函数，重载operator()运算符
+};
+
 
 BASIC_NAMESPACE_END
 
-#endif // __MAP_HPP__
+#endif // __MAP_HPP__}}
