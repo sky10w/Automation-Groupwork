@@ -46,37 +46,40 @@ public:
     void eraseNode( iterator& __target );
 
     // 快捷地创建一个与已有结点相连的结点
-    iterator expandNode( iterator __fromId, val_t __edgeVal );
+    iterator expandNode( iterator __from, val_t __edgeVal );
     // 合并两个结点，并且，将src合并至dest后，src被弃用
     iterator mergeNode( iterator __dest, iterator __src );
 
-    // 在该Map后连接另一个Map
+    // 在该Map后连接另一个Map（不常用）
     void concat( const Map& __rhs );
     // 开始状态
     iterator begin();
     // 返回结束状态的迭代器集合
     iterator_set dest() const;
+    // 返回一个iterator(nullptr)，用于判断越界
     iterator end() const;
     // 返回该Map是否为空
     bool empty() const;
-
-    Map& operator=( const Map& __rhs );
-
+    // 清空该图
     void clear();
     // 测试用输出
     void outputTest();
+
+    Map& operator=( const Map& __rhs );
 };
 
 struct Map::iterator
 {
-    Node& operator*() const { return *_m_val; }
+    bool operator==( const Node* __rhs ) const;
     bool operator==( const iterator& __rhs ) const { return this->_m_val == __rhs._m_val; }
+    bool operator!=( const iterator& __rhs ) const { return this->_m_val != __rhs; }
     const iterator& operator=( const iterator& __rhs ) { this->_m_val = __rhs._m_val; return *this; }
     bool operator<( const iterator& __rhs ) const { return this->_m_val < __rhs._m_val; }
-    Node* operator->() { return ( this->_m_val ); }
-    // 获得指向实际结点的指针（不建议使用）
+    // 获得指向实际结点的指针（不常用）
     const Node* get() const;
-    // 返回该结点点通过val能到达的结点集合
+    // 返回当前结点的类型（开始、中间或结束）
+    node_t type() const;
+    // 返回该结点通过val能到达的结点集合
     iterator_set next( val_t __val ) const;
     // 返回能通过val到达该结点的结点集合
     iterator_set revNext( val_t __val ) const;
@@ -84,12 +87,14 @@ struct Map::iterator
     void deprecate();
     // 构造函数
     iterator();
-    explicit iterator( Node* __node );
     // 复制构造函数
     iterator( const iterator& __rhs );
     friend class Map;
 private:
     Node* _m_val;
+    Node& operator*() const { return *_m_val; }
+    Node* operator->() { return ( this->_m_val ); }
+    explicit iterator( Node* __node );
 };
 
 struct Map::iterator_cmp

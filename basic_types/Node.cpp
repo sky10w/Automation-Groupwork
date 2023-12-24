@@ -155,8 +155,10 @@ void Node::_eraseRevEdge( RevEdge_t* __rev, val_t __val )
         std::cerr << "Cannot erase a non-exist RevEdge" << '\n';
         return;
     }
-    delete ( *tar );
+    auto temp = *tar;
+    // delete ( *tar );
     this->revEdge[__val].erase( tar );
+    delete temp;
 }
 
 void Node::clear()
@@ -166,10 +168,11 @@ void Node::clear()
         auto& tar = ( *i ).second;
         for (auto j = tar.begin(); j != tar.end(); j++)
         {
-            auto& tarNode = *j;
+            auto tarNode = *j;
             tarNode->to()->_eraseRevEdge( tarNode->rev(), ( *i ).first );
-            delete ( *j );
-            tar.erase( j );
+            delete tarNode;
+            j = tar.erase( j );
+            if (j == tar.end()) break;
         }
     }
 }
