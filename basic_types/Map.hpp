@@ -74,7 +74,7 @@ struct Map::iterator
 {
     bool operator==( const Node* __rhs ) const;
     bool operator==( const iterator& __rhs ) const { return this->_m_val == __rhs._m_val; }
-    bool operator!=( const iterator& __rhs ) const { return this->_m_val != __rhs; }
+    bool operator!=( const iterator& __rhs ) const { return this->_m_val != __rhs._m_val; }
     const iterator& operator=( const iterator& __rhs ) { this->_m_val = __rhs._m_val; return *this; }
     bool operator<( const iterator& __rhs ) const { return this->_m_val < __rhs._m_val; }
     // 获得指向实际结点的指针（不常用）
