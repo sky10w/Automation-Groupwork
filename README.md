@@ -7,7 +7,7 @@
 Map本质是一个图，可以用来表示NFA/DFA，它的结点用来表示各个状态，它的边用来表示一个状态转移方式<br>
 例如下图：
 
-> <img src="./Map.png" width=300><br>
+> <img src="res/Map.png" width=300><br>
 > 这个图可以表示：<br>
 > q1可以通过a到达状态q2，<br>
 > q1也可以通过b到达状态q3...
@@ -68,9 +68,9 @@ if(a.type() == nodet::START)
 将src结点合并至dest结点<br>
 ***注意，src的状态和边都将被dest继承***
 > 一开始：<br>
-> <img src="PreMerge.png" width="300"><br>
+> <img src="res/PreMerge.png" width="300"><br>
 > 当3结点合并至2结点时，3到4的边被2继承<br>
-> <img src="PostMerge.png" width="300">
+> <img src="res/PostMerge.png" width="300">
 
 
 ## void concat( const Map& rhs )

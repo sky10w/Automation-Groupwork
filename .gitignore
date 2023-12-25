@@ -51,7 +51,7 @@
 *.doc
 
 # pictures
-*.png
+简介*
 *.jpg
 
 # document
