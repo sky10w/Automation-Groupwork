@@ -9,18 +9,17 @@
 class ConvertREtoNFAEpsilon
 {
 public:
-    using item_t = ato::val_t;
-
+    using val_t = ato::val_t;
 private:
     // 各个符号
-    static const item_t leftBracket;
-    static const item_t rightBracket;
-    static const item_t plus;
-    static const item_t concat;
-    static const item_t loop;
+    static const val_t leftBracket;
+    static const val_t rightBracket;
+    static const val_t plus;
+    static const val_t concat;
+    static const val_t loop;
 
     // 将中缀表达式转换为后缀表达式，便于后续操作
-    std::list<item_t> _midToPost( const std::string& __re );
+    std::list<val_t> _midToPost( const std::string& __re );
 
 public:
     ConvertREtoNFAEpsilon();

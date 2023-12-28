@@ -1,24 +1,24 @@
 #include "REtoNFAwithEpsilon.hpp"
 
-const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::leftBracket = { '(' };
-const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::rightBracket = { ')' };
-const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::plus = { '+' };
-const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::concat = { '&' };
-const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::loop = { '*' };
+const ConvertREtoNFAEpsilon::val_t ConvertREtoNFAEpsilon::leftBracket = { '(' };
+const ConvertREtoNFAEpsilon::val_t ConvertREtoNFAEpsilon::rightBracket = { ')' };
+const ConvertREtoNFAEpsilon::val_t ConvertREtoNFAEpsilon::plus = { '+' };
+const ConvertREtoNFAEpsilon::val_t ConvertREtoNFAEpsilon::concat = { '&' };
+const ConvertREtoNFAEpsilon::val_t ConvertREtoNFAEpsilon::loop = { '*' };
 
 // Fully Tested
-std::list<ConvertREtoNFAEpsilon::item_t> ConvertREtoNFAEpsilon::_midToPost( const std::string& __re )
+std::list<ConvertREtoNFAEpsilon::val_t> ConvertREtoNFAEpsilon::_midToPost( const std::string& __re )
 {
     // item_t tempList;
-    std::stack<item_t> signStk;
-    std::list<item_t> resList;
+    std::stack<val_t> signStk;
+    std::list<val_t> resList;
 
-    std::map<item_t, int> seq = {
+    std::map<val_t, int> seq = {
         {plus, 0},
         {concat, 1},
         {loop, 2}
     };
-    auto pushSign = [&]( const item_t& __sign )
+    auto pushSign = [&]( const val_t& __sign )
         {
             while (!signStk.empty())
             {
@@ -114,9 +114,7 @@ std::list<ConvertREtoNFAEpsilon::item_t> ConvertREtoNFAEpsilon::_midToPost( cons
 }
 
 ConvertREtoNFAEpsilon::ConvertREtoNFAEpsilon()
-{
-    std::cout << "Test\n";
-}
+{}
 
 void ConvertREtoNFAEpsilon::testMidToPost( const std::string& __re )
 {
@@ -136,45 +134,56 @@ ato::Map ConvertREtoNFAEpsilon::convert( const std::string& __re )
     std::stack<ato::Map::iterator> startStk;
     std::stack<ato::Map::iterator> endStk;
 
-    startStk.push( mp.insertNode( ato::node_t::START ) );
-    endStk.push( mp.insertNode( ato::node_t::END ) );
-
-    ato::Map::iterator pre = startStk.top();
-
     for (auto& item : itemList)
     {
         if (item == '0' || item == '1')
         {
-            pre = mp.expandNode( pre, item );
+            startStk.push( mp.insertNode( ato::node_t::MIDDLE ) );
+            endStk.push( mp.insertNode( ato::node_t::MIDDLE ) );
+            mp.insertEdge( startStk.top(), endStk.top(), item );
         } else if (item == '*')
         {
-            pre = mp.expandNode( pre, ato::EPSILON );
+            mp.insertEdge( endStk.top(), startStk.top(), ato::EPSILON );
+        } else if (item == '&')
+        {
+            auto s1 = startStk.top();
+            auto e1 = endStk.top();
+            startStk.pop();
+            endStk.pop();
+            auto s2 = startStk.top();
+            auto e2 = endStk.top();
+            startStk.pop();
+            endStk.pop();
+            mp.insertEdge( e2, s1, ato::EPSILON );
+            startStk.push( s2 );
+            endStk.push( e1 );
+        } else if (item == '+')
+        {
+            ato::Map::iterator ss[2], ee[2];
+            for (int i : {0, 1})
+            {
+                ss[i] = startStk.top();
+                ee[i] = endStk.top();
+                startStk.pop();
+                endStk.pop();
+            }
+            auto ns = mp.insertNode( ato::node_t::MIDDLE );
+            auto ne = mp.insertNode( ato::node_t::MIDDLE );
+            for (int i : {0, 1})
+            {
+                mp.insertEdge( ns, ss[i], ato::EPSILON );
+                mp.insertEdge( ee[i], ne, ato::EPSILON );
+            }
+            startStk.push( ns );
+            endStk.push( ne );
         }
-
     }
-    return ato::Map();
+    if (startStk.size() > 1 || endStk.size() > 1)
+    {
+        std::cout << "Invalid RE" << '\n';
+    }
+    mp.insertEdge( mp.insertNode( ato::node_t::START ), startStk.top(), ato::EPSILON );
+    mp.insertEdge( endStk.top(), mp.insertNode( ato::node_t::END ), ato::EPSILON );
+
+    return mp;
 }
-
-// if (item == '0' || item == '1')
-        // {
-        //     ato::Map tempMp;
-        //     tempMp.insertNode( ato::node_t::START );
-        //     tempMp.insertNode( ato::node_t::END );
-        //     // tempMp.insertEdge( tempMp.begin(), *( tempMp.last().begin() ), item );
-        //     numStk.push( { item , tempMp } );
-
-        // } else if (item == '*')
-        // {
-        //     auto tar = numStk.top();
-        //     auto& mp = tar.second;
-        //     // mp.insertEdge( *( mp.last().begin() ), mp.begin(), ato::EPSILON );
-        // } else if (item == '+')
-        // {
-        //     // 结果中后部的结点
-        //     auto tar1 = numStk.top();
-        //     numStk.pop();
-        //     // 结果中前部的结点
-        //     auto tar2 = numStk.top();
-        //     ato::Map tempMp;
-
-        // }
