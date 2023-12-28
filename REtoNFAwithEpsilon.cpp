@@ -1,4 +1,4 @@
-#include "FAtoNFAwithEpsilon.hpp"
+#include "REtoNFAwithEpsilon.hpp"
 
 const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::leftBracket = { '(' };
 const ConvertREtoNFAEpsilon::item_t ConvertREtoNFAEpsilon::rightBracket = { ')' };

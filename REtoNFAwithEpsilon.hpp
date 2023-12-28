@@ -1,5 +1,5 @@
-#ifndef __FA_TO_NFAWITHEPSILON_HPP__
-#define __FA_TO_NFAWITHEPSILON_HPP__
+#ifndef __RE_TO_NFAWITHEPSILON_HPP__
+#define __RE_TO_NFAWITHEPSILON_HPP__
 
 #include "basic_types/Map.hpp"
 #include <iostream>
