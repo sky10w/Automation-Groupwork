@@ -129,7 +129,6 @@ void Map::insertEdge( Map::iterator __from, Map::iterator __to, val_t __edgeVal 
 
     if (__to.type() == ato::node_t::START)
     {
-        this->setNodeType( __to, node_t::MIDDLE );
         this->setNodeType( __from, node_t::START );
     }
     _edgeSize++;
@@ -160,19 +159,20 @@ Map::iterator Map::insertNode( node_t __nodeType )
 
 void Map::setNodeType( iterator __tar, node_t __nodeType )
 {
-    if (__tar->type == __nodeType) return;
+    if (__tar.type() == __nodeType) return;
 
-    if (__tar->type == node_t::END && __nodeType != node_t::END)
+    if (__tar.type() == node_t::END && __nodeType != node_t::END)
     {
         _endNode.erase( _endNode.find( __tar._m_val ) );
-    } else if (__tar->type == node_t::END && __nodeType != node_t::END)
+    } else if (__nodeType == node_t::END && __tar.type() != node_t::END)
     {
         _endNode.insert( &( *__tar ) );
     }
-    if (__tar->type == node_t::START && __nodeType != node_t::START)
+
+    if (__tar.type() == node_t::START && __nodeType != node_t::START)
     {
         _startNode = nullptr;
-    } else if (__nodeType == node_t::START && __tar->type != node_t::START)
+    } else if (__nodeType == node_t::START && __tar.type() != node_t::START)
     {
         // 改变startNode
         _startNode->type = ato::node_t::MIDDLE;
