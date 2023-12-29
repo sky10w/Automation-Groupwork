@@ -74,7 +74,11 @@ struct Map::iterator
 {
     bool operator==( const Node* __rhs ) const;
     bool operator==( const iterator& __rhs ) const { return this->_m_val == __rhs._m_val; }
+<<<<<<< HEAD
     bool operator!=( const iterator& __rhs ) const { return this->_m_val != __rhs._m_val; }
+=======
+    //bool operator!=( const iterator& __rhs ) const { return this->_m_val != __rhs._m_val; }
+>>>>>>> bbb376642ef204a417d8db8b1c2776a68300a79f
     const iterator& operator=( const iterator& __rhs ) { this->_m_val = __rhs._m_val; return *this; }
     bool operator<( const iterator& __rhs ) const { return this->_m_val < __rhs._m_val; }
     // 获得指向实际结点的指针（不常用）
@@ -92,6 +96,8 @@ struct Map::iterator
     // 复制构造函数
     iterator( const iterator& __rhs );
     friend class Map;
+public:
+
 private:
     Node* _m_val;
     Node& operator*() const { return *_m_val; }
@@ -101,6 +107,7 @@ private:
 
 struct Map::iterator_cmp
 {
+public:
     bool operator()( Map::iterator a, Map::iterator b ) const;  //仿函数，重载operator()运算符
 };
 
