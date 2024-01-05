@@ -123,7 +123,7 @@ void minimize( ato::Map& dfa )
         }
 
     }
-
+    /*
     for (int i = 0;i <= 9;i++)
     {
         for (int j = 0;j <= 9;j++)
@@ -132,7 +132,7 @@ void minimize( ato::Map& dfa )
             std::cout << flag[i][j] << ' ';
         }
         std::cout << std::endl;
-    }
+    }*/
     std::vector< std::set<Map::iterator> > identical;
     identical.clear();
     for (auto& x : dfa.all())
@@ -177,7 +177,7 @@ void minimize( ato::Map& dfa )
         {
             auto a = x.begin();
             auto b = x.rbegin();
-            std::cout << get[*a] << ' ' << get[*b] << std::endl;
+            //std::cout << get[*a] << ' ' << get[*b] << std::endl;
             dfa.mergeNode( *a, *b );//最后的合并
             x.erase( *b );
         }
