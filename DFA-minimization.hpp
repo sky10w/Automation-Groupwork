@@ -1,3 +1,7 @@
+#ifndef __DFA_MINIMIZATION_HPP
+#define __DFA_MINIMIZATION_HPP
+
+
 #include"basic_types/Map.hpp"
 #include<iostream>
 #include<map>
@@ -5,8 +9,11 @@
 #include<algorithm>
 using namespace ato;
 
-void add(int a, int b);
+void add( int a, int b );
 
-int getid(ato::Map::iterator x, ato::Map::iterator y);
+int getid( ato::Map::iterator x, ato::Map::iterator y );
 
-void minimize(ato::Map &dfa);
+void minimize( ato::Map& dfa );
+
+
+#endif
