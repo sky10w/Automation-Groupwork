@@ -1,5 +1,5 @@
-#ifndef __DFA_MINIMIZATION_HPP
-#define __DFA_MINIMIZATION_HPP
+#ifndef __DFA_MINIMIZATION_HPP__
+#define __DFA_MINIMIZATION_HPP__
 
 
 #include"basic_types/Map.hpp"
