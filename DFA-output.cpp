@@ -43,8 +43,9 @@ void printDFA( const ato::Map& __dfa )
 
 void toDot( const ato::Map& __dfa )
 {
+    std::ofstream dot_file( "./res/graph.dot" );
     // Init
-    std::cout << "strict digraph G {" << '\n'
+    dot_file << "strict digraph G {" << '\n'
         << "rankdir = LR;" << '\n'
         << "node[shape=circle]" << '\n'
         << "edge[arrowhead=vee]" << '\n';
@@ -54,7 +55,7 @@ void toDot( const ato::Map& __dfa )
     {
         vis.insert( { i, false } );
     }
-    std::cout << "s -> q0" << '\n';
+    dot_file << "s -> q0" << '\n';
 
     std::queue<ato::Map::iterator> q;
     int cnt = 0;
@@ -80,9 +81,10 @@ void toDot( const ato::Map& __dfa )
             q.push( to1 );
             id.insert( { cur, cnt++ } );
         }
-        std::cout << "q" << id[cur] << " -> q" << id[to0] << '\n'
+        dot_file << "q" << id[cur] << " -> q" << id[to0] << '\n'
             << "q" << id[cur] << " -> q" << id[to1] << '\n';
     }
 
-    std::cout << '}' << '\n';
+    dot_file << '}' << '\n';
+    system( "dot -Tpng ./res/graph.dot -o ./res/graph.png" );
 }
