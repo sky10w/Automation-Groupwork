@@ -9,7 +9,7 @@
 using namespace std;
 using namespace ato;
 
-NFA convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon);
+ato::Map convertNFA( ato::Map nfaWithEpsilon );
 
 
 

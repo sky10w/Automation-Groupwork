@@ -42,7 +42,7 @@ public:
 
     // 删除一条边
     void eraseEdge( iterator __from, iterator __to, val_t __edgeVal );
-    // 删除一个结点，且与之相关的边全部被清除
+    // 删除一个结点，且与之相关的边全部被清除s
     void eraseNode( iterator& __target );
 
     // 快捷地创建一个与已有结点相连的结点
@@ -53,7 +53,7 @@ public:
     // 在该Map后连接另一个Map（不常用）
     void concat( const Map& __rhs );
     // 开始状态
-    iterator begin();
+    iterator begin() const;
     // 返回结束状态的迭代器集合
     iterator_set dest() const;
     // 返回所有结点的迭代器集合
@@ -97,7 +97,7 @@ public:
 private:
     Node* _m_val;
     Node& operator*() const { return *_m_val; }
-    Node* operator->() { return ( this->_m_val ); }
+    Node* operator->() { return (this->_m_val); }
     explicit iterator( Node* __node );
 };
 

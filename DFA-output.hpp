@@ -5,9 +5,11 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <queue>
 
 
 void printDFA( const ato::Map& __dfa );
 
+void toDot( const ato::Map& __dfa );
 
 #endif

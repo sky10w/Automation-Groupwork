@@ -11,7 +11,7 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 set(EXPORT_COMPILE_COMMANDS ON)
 
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} SRC_SUB)
-set(HEADER_SUB macros.hpp Edge.hpp Map.hpp Node.hpp Edge_imp.hpp RG.hpp)
+set(HEADER_SUB macros.hpp Edge.hpp Map.hpp Node.hpp Edge_imp.hpp)
 message(${SRC_SUB})
 
 add_library(basic_types STATIC ${SRC_SUB} ${HEADER_SUB})

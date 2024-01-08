@@ -2,43 +2,67 @@
 
 typedef set<int> StateSet;
 
-ato::Map convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon) {
-    ato::Map nfa;
-    map<int, map<char, StateSet>> transitions = nfaWithEpsilon;
-    set<int> visitedStates;
-    stack<int> statesToVisit;
+ato::Map convertNFA( ato::Map nfaWithEpsilon )
+{
+    set<ato::Map::iterator> visitedStates;
+    stack<ato::Map::iterator> statesToVisit;
     // 获取起始状态
-    int startState = nfaWithEpsilon.begin()->first;
-    nfa.startState = startState;
+    auto startState = nfaWithEpsilon.begin();
     // 遍历含有空串的NFA
-    statesToVisit.push(startState);
-    while (!statesToVisit.empty()) {
-        int currentState = statesToVisit.top();
+    statesToVisit.push( startState );
+    while (!statesToVisit.empty())
+    {
+        auto currentState = statesToVisit.top();
         statesToVisit.pop();
-        visitedStates.insert(currentState);
         // 获取当前状态的转移
-        map<char, StateSet> currentTransitions = transitions[currentState];
-        for (auto transition : currentTransitions) {
-            char input = transition.first;
-            StateSet destinationStates = transition.second;
-            // 添加转移到NFA
-            nfa.transitions[currentState][input] = destinationStates;
-            // 若含有空串转移，则加入待访问的状态
-            if (input == '\0') {
-                for (int state : destinationStates) {
-                    if (visitedStates.find(state) == visitedStates.end()) {
-                        statesToVisit.push(state);
-                    }
+        auto nodes = nfaWithEpsilon.all();
+        for (auto node = nodes.begin(); node != nodes.end();)
+        {
+            auto cur = *(node++);
+            auto to = node.operator*().next( ato::EPSILON );
+            if (to.empty()) continue;
+
+            for (auto i = to.begin(); i != to.end();)
+            {
+                auto cur2 = *(i++);
+                nfaWithEpsilon.mergeNode( cur2, cur );
+                if (statesToVisit.top() != cur2)
+                {
+                    statesToVisit.push( cur2 );
                 }
             }
+
         }
-    }
-    // 设置接受状态
-    for (auto state : visitedStates) {
-        if (transitions[state].find('\0') != transitions[state].end()) {
-            nfa.acceptStates.insert(state);
-        }
+
+        //     map<char, StateSet> currentnfaWithEpsilon = transitions[currentState];
+        //     for (auto transition : currentnfaWithEpsilon)
+        //     {
+        //         char input = transition.first;
+        //         StateSet destinationStates = transition.second;
+        //         // 添加转移到NFA
+        //         nfa.nfaWithEpsilon[currentState][input] = destinationStates;
+        //         // 若含有空串转移，则加入待访问的状态
+        //         if (input == '\0')
+        //         {
+        //             for (int state : destinationStates)
+        //             {
+        //                 if (visitedStates.find( state ) == visitedStates.end())
+        //                 {
+        //                     statesToVisit.push( state );
+        //                 }
+        //             }
+        //         }
+        //     }
+        // 
+        // // 设置接受状态
+        // for (auto state : visitedStates)
+        // {
+        //     if (nfaWithEpsilon[state].find( '\0' ) != transitions[state].end())
+        //     {
+        //         nfa.acceptStates.insert( state );
+        //     }
+        // }
     }
 
-    return nfa;
+    return nfaWithEpsilon;
 }
