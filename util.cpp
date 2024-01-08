@@ -36,7 +36,5 @@ ato::Map::iterator_set set_next( ato::val_t __val, ato::Map::iterator_set __set 
             res.insert( j );
         }
     }
-
-
     return res;
 }
