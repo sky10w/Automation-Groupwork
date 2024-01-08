@@ -1,68 +1,86 @@
 #include"nfa.hpp"
 
-typedef set<int> StateSet;
+/*typedef set<int> StateSet;
 
-ato::Map convertNFA( ato::Map nfaWithEpsilon )
-{
-    set<ato::Map::iterator> visitedStates;
-    stack<ato::Map::iterator> statesToVisit;
-    // »ñÈ¡ÆğÊ¼×´Ì¬
-    auto startState = nfaWithEpsilon.begin();
-    // ±éÀúº¬ÓĞ¿Õ´®µÄNFA
-    statesToVisit.push( startState );
-    while (!statesToVisit.empty())
-    {
-        auto currentState = statesToVisit.top();
+ato::Map convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon) {
+    ato::Map nfa;
+    map<int, map<char, StateSet>> transitions = nfaWithEpsilon;
+    set<int> visitedStates;
+    stack<int> statesToVisit;
+    // è·å–èµ·å§‹çŠ¶æ€
+    int startState = nfaWithEpsilon.begin()->first;
+    nfa.startState = startState;
+    // éå†å«æœ‰ç©ºä¸²çš„NFA
+    statesToVisit.push(startState);
+    while (!statesToVisit.empty()) {
+        int currentState = statesToVisit.top();
         statesToVisit.pop();
-        // »ñÈ¡µ±Ç°×´Ì¬µÄ×ªÒÆ
-        auto nodes = nfaWithEpsilon.all();
-        for (auto node = nodes.begin(); node != nodes.end();)
-        {
-            auto cur = *(node++);
-            auto to = node.operator*().next( ato::EPSILON );
-            if (to.empty()) continue;
-
-            for (auto i = to.begin(); i != to.end();)
-            {
-                auto cur2 = *(i++);
-                nfaWithEpsilon.mergeNode( cur2, cur );
-                if (statesToVisit.top() != cur2)
-                {
-                    statesToVisit.push( cur2 );
+        visitedStates.insert(currentState);
+        // è·å–å½“å‰çŠ¶æ€çš„è½¬ç§»
+        map<char, StateSet> currentTransitions = transitions[currentState];
+        for (auto transition : currentTransitions) {
+            char input = transition.first;
+            StateSet destinationStates = transition.second;
+            // æ·»åŠ è½¬ç§»åˆ°NFA
+            nfa.transitions[currentState][input] = destinationStates;
+            // è‹¥å«æœ‰ç©ºä¸²è½¬ç§»ï¼Œåˆ™åŠ å…¥å¾…è®¿é—®çš„çŠ¶æ€
+            if (input == '\0') {
+                for (int state : destinationStates) {
+                    if (visitedStates.find(state) == visitedStates.end()) {
+                        statesToVisit.push(state);
+                    }
                 }
             }
 
         }
-
-        //     map<char, StateSet> currentnfaWithEpsilon = transitions[currentState];
-        //     for (auto transition : currentnfaWithEpsilon)
-        //     {
-        //         char input = transition.first;
-        //         StateSet destinationStates = transition.second;
-        //         // Ìí¼Ó×ªÒÆµ½NFA
-        //         nfa.nfaWithEpsilon[currentState][input] = destinationStates;
-        //         // Èôº¬ÓĞ¿Õ´®×ªÒÆ£¬Ôò¼ÓÈë´ı·ÃÎÊµÄ×´Ì¬
-        //         if (input == '\0')
-        //         {
-        //             for (int state : destinationStates)
-        //             {
-        //                 if (visitedStates.find( state ) == visitedStates.end())
-        //                 {
-        //                     statesToVisit.push( state );
-        //                 }
-        //             }
-        //         }
-        //     }
-        // 
-        // // ÉèÖÃ½ÓÊÜ×´Ì¬
-        // for (auto state : visitedStates)
-        // {
-        //     if (nfaWithEpsilon[state].find( '\0' ) != transitions[state].end())
-        //     {
-        //         nfa.acceptStates.insert( state );
-        //     }
-        // }
+    }
+    // è®¾ç½®æ¥å—çŠ¶æ€
+    for (auto state : visitedStates) {
+        if (transitions[state].find('\0') != transitions[state].end()) {
+            nfa.acceptStates.insert(state);
+        }
     }
 
-    return nfaWithEpsilon;
+    return nfa;
+}*/
+Map convertNFA(ato::Map& enfa){
+    map<Map::iterator,Map::iterator_set> closure;
+    map<Map::iterator,Map::iterator_set> closure0;
+    map<Map::iterator,Map::iterator_set> closure1;
+    //map<Map::iterator,Map::iterator_set> closure2;
+    /*
+    for(auto &x:enfa.all()){
+        x.clearflag();
+        closure0[x]=x.e_closure();
+        cout<<closure0[x].size()<<' '; 
+    }*/
+    cout<<endl;
+    //è·å–é—­åŒ…çš„è¾¹
+    for(auto &x:enfa.all())
+        closure0[x]=x.next_closure('0');
+    
+    for(auto &x:enfa.all())
+        closure1[x]=x.next_closure('1');
+    /*
+    for(auto &x:enfa.all())
+        closure2[x]=x.next_closure('2');
+    */
+    //é‡å»ºè¾¹
+    for(auto &x:closure0){
+        for(auto &y:x.second)
+            enfa.insertEdge(x.first,y,'0');
+    }
+    for(auto &x:closure1){
+        for(auto &y:x.second)
+            enfa.insertEdge(x.first,y,'1');
+    }
+    /*
+    for(auto &x:closure2){
+        for(auto &y:x.second)
+            enfa.insertEdge(x.first,y,'2');
+    }*/
+    for(auto &x:enfa.all())
+        for(auto &y:enfa.all())
+            enfa.eraseEdge(x,y,'E');
+    return enfa;
 }

@@ -3,14 +3,16 @@
 
 #include "basic_types/Map.hpp"
 #include <iostream>
+#include<algorithm>
 #include <stack>
 #include <list>
+#include <set>
 
 using namespace std;
 using namespace ato;
 
-ato::Map convertNFA( ato::Map nfaWithEpsilon );
-
+//NFA convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon);
+ato::Map convertNFA(ato::Map& nfa);
 
 
 #endif
