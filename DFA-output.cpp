@@ -40,3 +40,49 @@ void printDFA( const ato::Map& __dfa )
             << std::setw( 4 ) << to1 << '\n';
     }
 }
+
+void toDot( const ato::Map& __dfa )
+{
+    // Init
+    std::cout << "strict digraph G {" << '\n'
+        << "rankdir = LR;" << '\n'
+        << "node[shape=circle]" << '\n'
+        << "edge[arrowhead=vee]" << '\n';
+    std::map<ato::Map::iterator, bool> vis;
+    std::map<ato::Map::iterator, int> id;
+    for (auto& i : __dfa.all())
+    {
+        vis.insert( { i, false } );
+    }
+    std::cout << "s -> q0" << '\n';
+
+    std::queue<ato::Map::iterator> q;
+    int cnt = 0;
+    q.push( __dfa.begin() );
+    while (!q.empty())
+    {
+        auto cur = q.front();
+        vis[cur] = true;
+        if (id.find( cur ) == id.end())
+        {
+            id.insert( { cur,cnt++ } );
+        }
+        q.pop();
+        auto to0 = cur.next( '0' ).begin().operator*();
+        auto to1 = cur.next( '1' ).begin().operator*();
+        if (vis[to0] == false)
+        {
+            q.push( to0 );
+            id.insert( { cur, cnt++ } );
+        }
+        if (vis[to1] == false)
+        {
+            q.push( to1 );
+            id.insert( { cur, cnt++ } );
+        }
+        std::cout << "q" << id[cur] << " -> q" << id[to0] << '\n'
+            << "q" << id[cur] << " -> q" << id[to1] << '\n';
+    }
+
+    std::cout << '}' << '\n';
+}

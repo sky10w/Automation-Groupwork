@@ -217,7 +217,7 @@ void Map::setNodeType( iterator __tar, node_t __nodeType )
         _endNode.erase( _endNode.find( __tar._m_val ) );
     } else if (__nodeType == node_t::END && __tar.type() != node_t::END)
     {
-        _endNode.insert( &( *__tar ) );
+        _endNode.insert( &(*__tar) );
     }
 
     if (__tar.type() == node_t::START && __nodeType != node_t::START)
@@ -227,7 +227,7 @@ void Map::setNodeType( iterator __tar, node_t __nodeType )
     {
         // 改变startNode
         _startNode->type = ato::node_t::MIDDLE;
-        _startNode = &( *__tar );
+        _startNode = &(*__tar);
     }
 
     __tar->type = __nodeType;
@@ -246,16 +246,28 @@ Map::iterator Map::mergeNode( iterator __dest, iterator __src )
     this->setNodeType( __dest, __src.type() );
     for (auto& i : __src->edge)
     {
-        for (auto& edge : i.second)
+        for (auto edge = i.second.begin(); edge != i.second.end(); )
         {
-            edge->rev()->setTo( __dest._m_val );
+            auto cur = *(edge++);
+            if (cur->to() == __dest.get())
+            {
+                this->eraseEdge( __src, __dest, i.first );
+                continue;
+            }
+            cur->rev()->setTo( __dest._m_val );
         }
     }
     for (auto& i : __src->revEdge)
     {
-        for (auto& edge : i.second)
+        for (auto edge = i.second.begin(); edge != i.second.end(); )
         {
-            edge->ori()->setTo( __dest._m_val );
+            auto cur = *(edge++);
+            if (cur->to() == __dest.get())
+            {
+                this->eraseEdge( __dest, __src, i.first );
+                continue;
+            }
+            cur->ori()->setTo( __dest._m_val );
         }
     }
 
@@ -265,7 +277,6 @@ Map::iterator Map::mergeNode( iterator __dest, iterator __src )
     auto index = _nodeList.find( __src._m_val );
     _nodeList.erase( index );
     __src->clear();
-
     __src.deprecate();
 
     return __dest;
@@ -366,7 +377,7 @@ Map::iterator Map::end() const
 
 bool Map::empty() const
 {
-    return this->_nodeSize == 0;
+    return this->_nodeList.empty();
 }
 
 Map& Map::operator=( const Map& __rhs )
@@ -474,7 +485,7 @@ void Map::outputTest()
 }
 
 
-Map::iterator Map::begin()
+Map::iterator Map::begin() const
 {
     return Map::iterator( _startNode );
 }

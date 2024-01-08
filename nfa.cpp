@@ -31,6 +31,7 @@ ato::Map convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon) {
                     }
                 }
             }
+
         }
     }
     // 设置接受状态

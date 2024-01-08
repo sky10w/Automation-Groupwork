@@ -92,6 +92,10 @@ if(a.type() == nodet::START)
 
 ## void clear()
 清除自身，恢复为空
+
+## void outputTest()
+测试性输出，在命令行中打印图
+
 <br>
 <br>
 <br>
