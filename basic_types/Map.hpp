@@ -50,6 +50,7 @@ public:
     // 合并两个结点，并且，将src合并至dest后，src被弃用
     iterator mergeNode( iterator __dest, iterator __src );
 
+    
     // 在该Map后连接另一个Map（不常用）
     void concat( const Map& __rhs );
     // 开始状态
@@ -83,7 +84,15 @@ struct Map::iterator
     node_t type() const;
     // 返回该结点通过val能到达的结点集合
     iterator_set next( val_t __val ) const;
-    // 返回能通过val到达该结点的结点集合
+    // 返回能通过val的空闭包到达该结点的结点集合的空闭包
+    iterator_set next_closure( val_t __val ) const;
+   
+    
+    //返回该节点空闭包
+    iterator_set e_closure() const;
+    //清理求空闭包过程中的标记
+    void clearflag() const;
+
     iterator_set revNext( val_t __val ) const;
     // 弃用该迭代器
     void deprecate();
