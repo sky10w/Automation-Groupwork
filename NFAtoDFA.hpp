@@ -1,6 +1,5 @@
 #ifndef _NFA_TO_DFA_HPP_
 #define _NFA_TO_DFA_HPP_
-
 #include "basic_types/Map.hpp"
 #include <iostream>
 
