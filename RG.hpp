@@ -1,7 +1,6 @@
-﻿
-#include<iostream>
+﻿#include<iostream>
 #include<vector>
-#include"Map.hpp"
+#include"basic_types/Map.hpp"
 
 using namespace std;
 using namespace ato;

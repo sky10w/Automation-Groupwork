@@ -21,6 +21,7 @@ void dfs( int t )
         dfs( j );
     }
 }
+//11111
 std::map<ato::Map::iterator, int> get;
 void add( int a, int b )
 {
@@ -103,12 +104,12 @@ void minimize( ato::Map& dfa )
             {
                 if (flag[get[x0]][get[y0]] == 0)
                 {//不可区分则关联
-                    add( getid( x, y ), getid( x0, y0 ) );
+                    //add( getid( x, y ), getid( x0, y0 ) );
                     add( getid( x0, y0 ), getid( x, y ) );
                 }
                 if (flag[get[x1]][get[y1]] == 0)
                 {
-                    add( getid( x, y ), getid( x1, y1 ) );
+                    //add( getid( x, y ), getid( x1, y1 ) );
                     add( getid( x1, y1 ), getid( x, y ) );
                 }
             }
@@ -124,15 +125,16 @@ void minimize( ato::Map& dfa )
 
     }
     /*
-    for (int i = 0;i <= 9;i++)
+    for (int j = 0;j <= 5;j++)
     {
-        for (int j = 0;j <= 9;j++)
+        for (int i = 0;i <= 5;i++)
         {
             if (j <= i) continue;
             std::cout << flag[i][j] << ' ';
         }
         std::cout << std::endl;
-    }*/
+    }
+    */
     std::vector< std::set<Map::iterator> > identical;
     identical.clear();
     for (auto& x : dfa.all())
