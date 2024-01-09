@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __EDGE_IMP_HPP__
 #define __EDGE_IMP_HPP__
 

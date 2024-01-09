@@ -26,6 +26,18 @@ ato::Map::iterator_set e_closure( ato::Map::iterator __iter )
     return res;
 }
 
+ato::Map::iterator_set e_closure( ato::Map::iterator_set __iterSet )
+{
+    ato::Map::iterator_set res;
+    for (auto j : __iterSet)
+    {
+        auto temp = e_closure( j );
+        res.insert( temp.begin(), temp.end() );
+    }
+    return res;
+}
+
+
 ato::Map::iterator_set set_next( ato::val_t __val, ato::Map::iterator_set __set )
 {
     ato::Map::iterator_set res;

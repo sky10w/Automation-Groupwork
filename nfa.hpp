@@ -2,6 +2,7 @@
 #define __3NFA_TO_NFA_HPP__
 
 #include "basic_types/Map.hpp"
+#include "util.hpp"
 #include <iostream>
 #include<algorithm>
 #include <stack>
@@ -12,7 +13,7 @@ using namespace std;
 using namespace ato;
 
 //NFA convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon);
-ato::Map convertNFA(ato::Map& nfa);
+ato::Map convertNFA( ato::Map& nfa );
 
 
 #endif

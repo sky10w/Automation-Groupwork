@@ -15,37 +15,39 @@ node_t Map::iterator::type() const
     return _m_val->type;
 }
 
-Map::iterator_set Map::iterator::next_closure( val_t __val ) const
-{
-    iterator_set temp;//temp作为this的空闭包
-    this->clearflag();
-    auto closure=this->e_closure();
-    temp.insert(closure.begin(),closure.end());
-    this->clearflag();
+// Map::iterator_set Map::iterator::next_closure( val_t __val ) const
+// {
+//     iterator_set temp;//temp作为this的空闭包
+//     this->clearflag();
+//     auto closure = this->e_closure();
+//     temp.insert( closure.begin(), closure.end() );
+//     this->clearflag();
 
-    iterator_set ans;
-    /*
-    if (this->get()->edge.find( __val ) == this->get()->edge.end())
-    {
-        return temp;
-    }
-    */
-    for(auto &x:temp){
-        //std::cout<<x._m_val->edge[__val].size()<<' ';
-        for (auto& i : x._m_val->edge[__val])
-        {
-            ans.insert( iterator( i->to() ) );
-        }
-    }
-    //std::cout<<std::endl;
-    for(auto x:ans){
-        this->clearflag();
-        auto y=x.e_closure();
-        this->clearflag();
-        ans.insert(y.begin(),y.end());
-    }
-    return ans;//ans为空闭包的next的空闭包即 this->e_clo.next(__val).e_clo
-}
+//     iterator_set ans;
+//     /*
+//     if (this->get()->edge.find( __val ) == this->get()->edge.end())
+//     {
+//         return temp;
+//     }
+//     */
+//     for (auto& x : temp)
+//     {
+//         //std::cout<<x._m_val->edge[__val].size()<<' ';
+//         for (auto& i : x._m_val->edge[__val])
+//         {
+//             ans.insert( iterator( i->to() ) );
+//         }
+//     }
+//     //std::cout<<std::endl;
+//     for (auto x : ans)
+//     {
+//         this->clearflag();
+//         auto y = x.e_closure();
+//         this->clearflag();
+//         ans.insert( y.begin(), y.end() );
+//     }
+//     return ans;//ans为空闭包的next的空闭包即 this->e_clo.next(__val).e_clo
+// }
 Map::iterator_set Map::iterator::next( val_t __val ) const
 {
     iterator_set temp;
@@ -59,26 +61,26 @@ Map::iterator_set Map::iterator::next( val_t __val ) const
     }
     return temp;
 }
-Map::iterator_set Map::iterator::e_closure() const
-{
-    __closure__flag.insert(*this);
-    auto val='E';
-    iterator_set temp;
-    temp.insert(*this);
-    for (auto& i : this->_m_val->edge[val]){//
-        auto y=iterator(i->to());
-        if(__closure__flag.find(y)==__closure__flag.end()){
-            auto x=y.e_closure();//dfs
-            temp.insert(x.begin(),x.end());
-        }
-    }
-    return temp;
-}
+// Map::iterator_set Map::iterator::e_closure() const
+// {
+//     __closure__flag.insert(*this);
+//     auto val='E';
+//     iterator_set temp;
+//     temp.insert(*this);
+//     for (auto& i : this->_m_val->edge[val]){//
+//         auto y=iterator(i->to());
+//         if(__closure__flag.find(y)==__closure__flag.end()){
+//             auto x=y.e_closure();//dfs
+//             temp.insert(x.begin(),x.end());
+//         }
+//     }
+//     return temp;
+// }
 
-void Map::iterator::clearflag() const
-{
-    __closure__flag.clear();
-}
+// void Map::iterator::clearflag() const
+// {
+//     __closure__flag.clear();
+// }
 Map::iterator_set Map::iterator::revNext( val_t __val ) const
 {
     iterator_set temp;
