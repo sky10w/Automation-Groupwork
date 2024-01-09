@@ -36,9 +36,9 @@ public:
     // 创建一条边
     void insertEdge( iterator __from, iterator __to, val_t __edgeVal );
     // 创建一个结点
-    iterator insertNode( node_t __nodeType );
+    iterator insertNode( node_t::_type __nodeType );
     // 改变结点属性（开始状态，中间状态，结束状态）
-    void setNodeType( iterator __tar, node_t __nodeType );
+    void setNodeType( iterator __tar, node_t::_type __nodeType );
 
     // 删除一条边
     void eraseEdge( iterator __from, iterator __to, val_t __edgeVal );

@@ -124,7 +124,7 @@ void minimize( ato::Map& dfa )
         }
 
     }
-    /*
+    
     for (int j = 0;j <= 5;j++)
     {
         for (int i = 0;i <= 5;i++)
@@ -134,7 +134,7 @@ void minimize( ato::Map& dfa )
         }
         std::cout << std::endl;
     }
-    */
+    
     std::vector< std::set<Map::iterator> > identical;
     identical.clear();
     for (auto& x : dfa.all())

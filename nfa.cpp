@@ -43,7 +43,7 @@ ato::Map convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon) {
 
     return nfa;
 }*/
-Map convertNFA( ato::Map& enfa )
+void convertNFA( ato::Map& enfa )
 {
     map<Map::iterator, Map::iterator_set> closure;
     map<Map::iterator, Map::iterator_set> closure0;
@@ -80,7 +80,9 @@ Map convertNFA( ato::Map& enfa )
             enfa.insertEdge( x.first, y, '1' );
     }
     /*
-    for(auto &x:closure2){
+    for(auto &x:closure2){3
+
+    
         for(auto &y:x.second)
             enfa.insertEdge(x.first,y,'2');
     }*/
@@ -99,5 +101,6 @@ Map convertNFA( ato::Map& enfa )
     for (auto& x : enfa.all())
         for (auto& y : enfa.all())
             enfa.eraseEdge( x, y, 'E' );
-    return enfa;
+            
+    //return enfa;
 }
