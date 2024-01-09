@@ -12,7 +12,7 @@ const Node* Map::iterator::get() const
 
 node_t Map::iterator::type() const
 {
-    return _m_val->type;
+    return _m_val->type.t;
 }
 
 // Map::iterator_set Map::iterator::next_closure( val_t __val ) const
@@ -187,53 +187,47 @@ void Map::insertEdge( Map::iterator __from, Map::iterator __to, val_t __edgeVal 
     _edgeSize++;
 }
 
-Map::iterator Map::insertNode( node_t __nodeType )
+Map::iterator Map::insertNode( node_t::_type __nodeType )
 {
-    auto temp = new Node( _nodeSize, __nodeType );
+    auto temp = new Node( _nodeSize, ato::node_t::MIDDLE );
+    this->setNodeType( Map::iterator( temp ), __nodeType );
     _nodeList.insert( temp );
-    if (__nodeType == node_t::START)
-    {
-        if (_startNode != nullptr)
-        {
-            std::cout << "Warning: startNode is changed!" << '\n';
-            _startNode = temp;
-        } else
-        {
-            _startNode = temp;
-        }
-    } else if (__nodeType == node_t::END)
-    {
-        _endNode.insert( temp );
-    }
 
     _nodeSize++;
     return iterator( temp );
 }
 
-void Map::setNodeType( iterator __tar, node_t __nodeType )
+void Map::setNodeType( iterator __tar, node_t::_type __nodeType )
 {
+    // 此处包括StartnEnd和Start、StartnEnd和End的情况
     if (__tar.type() == __nodeType) return;
 
-    if (__tar.type() == node_t::END && __nodeType != node_t::END)
+    // End
+    if (__tar.type() == node_t::END && __nodeType == node_t::MIDDLE)
     {
         _endNode.erase( _endNode.find( __tar._m_val ) );
-    } else if (__nodeType == node_t::END && __tar.type() != node_t::END)
+    } else if (__nodeType == node_t::END || __nodeType == node_t::START_END)
     {
         _endNode.insert( &(*__tar) );
     }
 
-    if (__tar.type() == node_t::START && __nodeType != node_t::START)
+    // Start
+    if (__tar.type() == node_t::START && __nodeType == node_t::MIDDLE)
     {
         _startNode = nullptr;
-    } else if (__nodeType == node_t::START && __tar.type() != node_t::START)
+        std::cerr << "Warning: startNode is nullptr now" << '\n';
+    } else if (__nodeType == node_t::START || __nodeType == node_t::START_END)
     {
-        // 改变startNode
-        _startNode->type = ato::node_t::MIDDLE;
+        if (_startNode != nullptr)
+        {
+            // 改变startNode
+            if (_startNode->type == ato::node_t::START_END) _startNode->type = ato::node_t::END;
+            else _startNode->type = ato::node_t::MIDDLE;
+        }
         _startNode = &(*__tar);
     }
 
-    __tar->type = __nodeType;
-
+    __tar->type += __nodeType;
 }
 
 Map::iterator Map::expandNode( Map::iterator __from, val_t __edgeVal )
@@ -245,7 +239,7 @@ Map::iterator Map::expandNode( Map::iterator __from, val_t __edgeVal )
 
 Map::iterator Map::mergeNode( iterator __dest, iterator __src )
 {
-    this->setNodeType( __dest, __src.type() );
+    this->setNodeType( __dest, __src._m_val->type.t );
     for (auto& i : __src->edge)
     {
         for (auto edge = i.second.begin(); edge != i.second.end(); )
@@ -456,7 +450,8 @@ void Map::outputTest()
         if (i->type == ato::node_t::START)
         {
             std::cout << " [start]";
-        } else if (i->type == ato::node_t::END)
+        }
+        if (i->type == ato::node_t::END)
         {
             std::cout << " [end]";
         }
