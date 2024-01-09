@@ -103,7 +103,10 @@ bool Recursion( DFAState State, vector<DFAState>& Set, ato::Map& DFA )
     {
         Recursion( dfa2, Set, DFA );
     }//从新加入的状态及其对应节点开始递归
+
+    return true;
 }
+
 
 ato::Map NtoD( ato::Map& _NFA )
 {
@@ -123,4 +126,15 @@ ato::Map NtoD( ato::Map& _NFA )
     Recursion( q0, StateSet, DFA );
 
     return DFA;
+}
+
+
+ato::Map convertNFAtoDFA( ato::Map& __nfa )
+{
+    ato::Map resDfa;
+    std::map<ato::Map::iterator_set, ato::Map::iterator> cor;
+
+
+
+    return resDfa;
 }
