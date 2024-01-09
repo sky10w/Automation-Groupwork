@@ -218,9 +218,12 @@ void Map::setNodeType( iterator __tar, node_t::_type __nodeType )
         std::cerr << "Warning: startNode is nullptr now" << '\n';
     } else if (__nodeType == node_t::START || __nodeType == node_t::START_END)
     {
-        // 改变startNode
-        if (_startNode->type == ato::node_t::START_END) _startNode->type = ato::node_t::END;
-        else _startNode->type = ato::node_t::MIDDLE;
+        if (_startNode != nullptr)
+        {
+            // 改变startNode
+            if (_startNode->type == ato::node_t::START_END) _startNode->type = ato::node_t::END;
+            else _startNode->type = ato::node_t::MIDDLE;
+        }
         _startNode = &(*__tar);
     }
 
@@ -447,7 +450,8 @@ void Map::outputTest()
         if (i->type == ato::node_t::START)
         {
             std::cout << " [start]";
-        } else if (i->type == ato::node_t::END)
+        }
+        if (i->type == ato::node_t::END)
         {
             std::cout << " [end]";
         }
