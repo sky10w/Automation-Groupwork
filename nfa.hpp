@@ -13,8 +13,8 @@ using namespace std;
 using namespace ato;
 
 //NFA convertNFA(map<int, map<char, StateSet>> nfaWithEpsilon);
-ato::Map::iterator next_eclosure(ato::Map& );
-ato::Map convertNFA( ato::Map& nfa );
+//ato::Map::iterator next_eclosure(ato::Map& );
+void convertNFA( ato::Map& enfa );
 
 
 #endif
