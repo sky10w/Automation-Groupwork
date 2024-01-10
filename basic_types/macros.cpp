@@ -15,6 +15,9 @@ node_type::_type node_type::operator+=( node_type::_type b )
         || (this->t == node_type::END && b == node_type::START))
     {
         this->t = node_type::START_END;
+    } else if (b == node_type::START_END)
+    {
+        this->t = node_type::START_END;
     } else if (this->t == node_type::MIDDLE)
     {
         this->t = b;
