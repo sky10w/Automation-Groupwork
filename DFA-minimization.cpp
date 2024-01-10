@@ -84,7 +84,7 @@ void minimize( ato::Map& dfa )
         for (auto& y : dfa.all())
         {
 
-
+            
             if (get[y] <= get[x]) continue;//保证(qx,qy)(qy,qx)只会访问一个
             //std::cout<<get[x]<<' '<<get[y]<<std::endl;
             idx++;
@@ -99,7 +99,7 @@ void minimize( ato::Map& dfa )
             bool y1_empty=y.next('1').size();
             if (get[x0] >= get[y0]) std::swap( x0, y0 ),std::swap( x0_empty,y0_empty);
             if (get[x1] >= get[y1]) std::swap( x1, y1 ),std::swap( x1_empty,y1_empty);
-            if ((flag[get[x0]][get[y0]] &&!(x0_empty&&y0_empty))|| (flag[get[x1]][get[y1]]&&!(x1_empty&&y1_empty)))
+            if ((flag[get[x0]][get[y0]] )|| (flag[get[x1]][get[y1]]))
             {//DFA这个返回的iter set应该只有一个元素
                 //std::cout<<get[x]<<' '<<get[y]<<std::endl;
                 flag[get[x]][get[y]] = 1;//可区分则标记该状态
@@ -121,9 +121,9 @@ void minimize( ato::Map& dfa )
                 }
             }
             
-            for(int j=0;j<=3;j++){
-                for(int i=0;i<=3;i++){
-                    if(j<=i) continue;
+            for(int j=0;j<=8;j++){
+                for(int i=0;i<=8;i++){
+                    //if(j<=i) continue;
                     std::cout<<flag[i][j]<<' ';
                 }
             std::cout<<std::endl;
@@ -132,9 +132,9 @@ void minimize( ato::Map& dfa )
 
     }
     
-    for (int j = 0;j <= 3;j++)
+    for (int j = 0;j <= 8;j++)
     {
-        for (int i = 0;i <= 3;i++)
+        for (int i = 0;i <= 8;i++)
         {
             if (j <= i) continue;
             std::cout << flag[i][j] << ' ';
