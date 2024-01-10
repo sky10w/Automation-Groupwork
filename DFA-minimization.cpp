@@ -109,12 +109,12 @@ void minimize( ato::Map& dfa )
             } else
             {
 
-                if (flag[get[x0]][get[y0]] == 0&&!(x0_empty&&y0_empty))
+                if (flag[get[x0]][get[y0]] == 0)
                 {//不可区分则关联
                     //add( getid( x, y ), getid( x0, y0 ) );
                     add( getid( x0, y0 ), getid( x, y ) );
                 }
-                if (flag[get[x1]][get[y1]] == 0&&!(x1_empty&&y1_empty))
+                if (flag[get[x1]][get[y1]] == 0)
                 {
                     //add( getid( x, y ), getid( x1, y1 ) );
                     add( getid( x1, y1 ), getid( x, y ) );
