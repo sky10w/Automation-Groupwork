@@ -6,15 +6,15 @@ int h[1000];//点的坐标由N*a+b得来 这里尽量开大
 int e[M];
 int ne[M];
 int cnt = 0;
-int st[M];
-int  flag[N][N];
+int st[M]={0};
+int  flag[N][N]={0};
 void dfs( int t )
 {
 
     for (int i = h[t];i != -1;i = ne[i])
     {//及其所有关联边
         int j = e[i];
-        //std::cout<<j/N<<' '<<j%N<<std::endl;
+        std::cout<<j/N<<' '<<j%N<<std::endl;
         if (st[j]) continue;
         flag[j / N][j % N] = 1;
         st[j] = 1;
@@ -64,17 +64,17 @@ void minimize( ato::Map& dfa )
             if (get[x] > get[y])
                 flag[get[y]][get[x]] = 1;
             else
-                flag[get[x]][get[y]] = 1;//先标记非终结状态和中介状态的状态对
+                flag[get[x]][get[y]] = 1;//先标记非终结状态和终结状态的状态对
         }
     }
-    /*
-    for(int i=0;i<=N;i++){
-        for(int j=0;j<=N;j++){
+    
+    for(int j=0;j<=2;j++){
+        for(int i=0;i<=2;i++){
             if(j<=i) continue;
             std::cout<<flag[i][j]<<' ';
         }
         std::cout<<std::endl;
-    }*/
+    }
     //std::cout<<h[11]<<std::endl;
     //step2
     idx = 0;
@@ -88,18 +88,24 @@ void minimize( ato::Map& dfa )
             if (get[y] <= get[x]) continue;//保证(qx,qy)(qy,qx)只会访问一个
             //std::cout<<get[x]<<' '<<get[y]<<std::endl;
             idx++;
-            if (flag[get[x]][get[y]]) continue;
+            //if (flag[get[x]][get[y]]) continue;
             auto x0 = *x.next( '0' ).begin();
             auto y0 = *y.next( '0' ).begin();
             auto x1 = *x.next( '1' ).begin();
             auto y1 = *y.next( '1' ).begin();
-            if (get[x0] >= get[y0]) std::swap( x0, y0 );
-            if (get[x1] >= get[y1]) std::swap( x1, y1 );
-            if (flag[get[x0]][get[y0]] || flag[get[x1]][get[y1]])
+            bool x0_empty=x.next('0').size();
+            bool y0_empty=y.next('0').size();
+            bool x1_empty=x.next('1').size();
+            bool y1_empty=y.next('1').size();
+            if (get[x0] >= get[y0]) std::swap( x0, y0 ),std::swap( x0_empty,y0_empty);
+            if (get[x1] >= get[y1]) std::swap( x1, y1 ),std::swap( x1_empty,y1_empty);
+            if (flag[get[x0]][get[y0]] || flag[get[x1]][get[y1]]||!(x0_empty&&y0_empty)||!(x1_empty&&y1_empty))
             {//DFA这个返回的iter set应该只有一个元素
+                //std::cout<<get[x]<<' '<<get[y]<<std::endl;
                 flag[get[x]][get[y]] = 1;//可区分则标记该状态
                 memset( st, 0, sizeof st );
                 dfs( getid( x, y ) );
+                //std::cout<<"123456789"<<std::endl;
             } else
             {
                 if (flag[get[x0]][get[y0]] == 0)
@@ -113,21 +119,21 @@ void minimize( ato::Map& dfa )
                     add( getid( x1, y1 ), getid( x, y ) );
                 }
             }
-            /*
-            for(int i=0;i<=5;i++){
-                for(int j=0;j<=5;j++){
+            
+            for(int j=0;j<=3;j++){
+                for(int i=0;i<=3;i++){
                     if(j<=i) continue;
                     std::cout<<flag[i][j]<<' ';
                 }
             std::cout<<std::endl;
-            }*/
+            }
         }
 
     }
     
-    for (int j = 0;j <= 5;j++)
+    for (int j = 0;j <= 3;j++)
     {
-        for (int i = 0;i <= 5;i++)
+        for (int i = 0;i <= 3;i++)
         {
             if (j <= i) continue;
             std::cout << flag[i][j] << ' ';
