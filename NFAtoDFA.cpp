@@ -127,14 +127,9 @@ ato::Map NtoD( ato::Map& _NFA )
             q0.SetNode = DFA.insertNode( node_t::START );//定位首节点
         }
     }
-<<<<<<< HEAD
     Set.push_back( q0 );
-    cout << DFA.all().size() << endl;
-=======
-    Set.push_back(q0);
     //cout<<DFA.all().size()<<endl;
-    
->>>>>>> 20c0c0047e11462ec87bdd7f8f6f8b5e3ed937b7
+
     Recursion( q0, DFA );
     _NFA.clear();
     return DFA;

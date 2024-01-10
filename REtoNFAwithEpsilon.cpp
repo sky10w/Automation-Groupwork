@@ -144,6 +144,7 @@ ato::Map ConvertREtoNFAEpsilon::convert( const std::string& __re )
         } else if (item == '*')
         {
             mp.insertEdge( endStk.top(), startStk.top(), ato::EPSILON );
+            mp.insertEdge( startStk.top(), endStk.top(), ato::EPSILON );
         } else if (item == '&')
         {
             auto s1 = startStk.top();
