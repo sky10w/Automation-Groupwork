@@ -30,6 +30,7 @@ DFAState Move( DFAState& S, val_t edge )
     return result;
 }
 vector<DFAState>Set;
+ato::Map::iterator trapState;
 void Recursion( DFAState State, ato::Map& DFA )
 {
     cout << DFA.all().size() << endl;
@@ -64,14 +65,20 @@ void Recursion( DFAState State, ato::Map& DFA )
         Recursion( dfa1, DFA );
     } else if (st1 == false)
     {
+        bool checkIf = false;
         for (auto m : Set)
         {
             if (dfa1.StateNtoD == m.StateNtoD)
             {
                 dfa1 = m;
                 DFA.insertEdge( State.SetNode, dfa1.SetNode, '0' );
+                checkIf = true;
             }
             //_bool1 = 1;//出现循环构建循环边，并返回，递归完成
+        }
+        if (!checkIf)
+        {
+            DFA.insertEdge( State.SetNode, trapState, '0' );
         }
     }
     bool nd1 = Insertf( Set, dfa2.StateNtoD );//对不同输入求状态然后判断是否加入新状态
@@ -98,14 +105,20 @@ void Recursion( DFAState State, ato::Map& DFA )
         Recursion( dfa2, DFA );
     } else if (nd1 == false)
     {
+        bool checkIf = false;
         for (auto m : Set)
         {
             if (dfa2.StateNtoD == m.StateNtoD)
             {
                 dfa2 = m;
                 DFA.insertEdge( State.SetNode, dfa2.SetNode, '1' );
+                checkIf = true;
             }
             //_bool2 = 1;
+        }
+        if (!checkIf)
+        {
+            DFA.insertEdge( State.SetNode, trapState, '1' );
         }
     }
     //从新加入的状态及其对应节点开始递归
@@ -115,6 +128,10 @@ void Recursion( DFAState State, ato::Map& DFA )
 ato::Map NtoD( ato::Map& _NFA )
 {
     ato::Map DFA;
+    trapState = DFA.insertNode( ato::node_t::MIDDLE );
+    DFA.insertEdge( trapState, trapState, '0' );
+    DFA.insertEdge( trapState, trapState, '1' );
+
 
     DFAState q0;
 
@@ -134,3 +151,5 @@ ato::Map NtoD( ato::Map& _NFA )
     _NFA.clear();
     return DFA;
 }
+
+
