@@ -14,7 +14,7 @@ void dfs( int t )
     for (int i = h[t];i != -1;i = ne[i])
     {//及其所有关联边
         int j = e[i];
-        std::cout<<j/N<<' '<<j%N<<std::endl;
+        //std::cout<<j/N<<' '<<j%N<<std::endl;
         if (st[j]) continue;
         flag[j / N][j % N] = 1;
         st[j] = 1;
@@ -99,7 +99,7 @@ void minimize( ato::Map& dfa )
             bool y1_empty=y.next('1').size();
             if (get[x0] >= get[y0]) std::swap( x0, y0 ),std::swap( x0_empty,y0_empty);
             if (get[x1] >= get[y1]) std::swap( x1, y1 ),std::swap( x1_empty,y1_empty);
-            if (flag[get[x0]][get[y0]] || flag[get[x1]][get[y1]]||!(x0_empty&&y0_empty)||!(x1_empty&&y1_empty))
+            if ((flag[get[x0]][get[y0]] &&!(x0_empty&&y0_empty))|| (flag[get[x1]][get[y1]]&&!(x1_empty&&y1_empty)))
             {//DFA这个返回的iter set应该只有一个元素
                 //std::cout<<get[x]<<' '<<get[y]<<std::endl;
                 flag[get[x]][get[y]] = 1;//可区分则标记该状态
@@ -108,12 +108,13 @@ void minimize( ato::Map& dfa )
                 //std::cout<<"123456789"<<std::endl;
             } else
             {
-                if (flag[get[x0]][get[y0]] == 0)
+
+                if (flag[get[x0]][get[y0]] == 0&&!(x0_empty&&y0_empty))
                 {//不可区分则关联
                     //add( getid( x, y ), getid( x0, y0 ) );
                     add( getid( x0, y0 ), getid( x, y ) );
                 }
-                if (flag[get[x1]][get[y1]] == 0)
+                if (flag[get[x1]][get[y1]] == 0&&!(x1_empty&&y1_empty))
                 {
                     //add( getid( x, y ), getid( x1, y1 ) );
                     add( getid( x1, y1 ), getid( x, y ) );
