@@ -140,8 +140,11 @@ ato::Map NtoD( ato::Map& _NFA )
     {
         if (i.type() == node_t::START)
         {
+            
             q0.StateNtoD.insert( i );//将初始状态存入初始状态集中
-            q0.SetNode = DFA.insertNode( node_t::START );//定位首节点
+            if(i.type()==node_t::END)
+            q0.SetNode = DFA.insertNode( node_t::START_END );//定位首节点
+            else q0.SetNode = DFA.insertNode( node_t::START);
         }
     }
     Set.push_back( q0 );
