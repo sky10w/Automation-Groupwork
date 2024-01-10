@@ -50,3 +50,25 @@ ato::Map::iterator_set set_next( ato::val_t __val, ato::Map::iterator_set __set 
     }
     return res;
 }
+
+ato::Map easyDFAGenerator( int __pts, std::vector<std::pair<int, int>> __form, std::vector<int> __end )
+{
+    ato::Map mp;
+    std::vector<ato::Map::iterator> pts;
+    for (int i = 0; i < __pts; i++)
+    {
+        pts.push_back( mp.insertNode( ato::node_t::MIDDLE ) );
+    }
+    mp.setNodeType( pts[0], ato::node_t::START );
+    for (auto& i : __end)
+    {
+        mp.setNodeType( pts[i], ato::node_t::END );
+    }
+    for (int i = 0; i < __form.size(); i++)
+    {
+        mp.insertEdge( pts[i], pts[__form[i].first], '0' );
+        mp.insertEdge( pts[i], pts[__form[i].second], '1' );
+    }
+
+    return mp;
+}

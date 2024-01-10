@@ -9,4 +9,6 @@ ato::Map::iterator_set e_closure( ato::Map::iterator_set __iterSet );
 ato::Map::iterator_set set_next( ato::val_t __val, ato::Map::iterator_set __set );
 
 
+ato::Map easyDFAGenerator( int pts, std::vector<std::pair<int, int>> __str, std::vector<int> __end );
+
 #endif
