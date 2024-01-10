@@ -190,13 +190,9 @@ void minimize( ato::Map& dfa )
         {
             auto a = x.begin();
             auto b = --x.end();
-<<<<<<< HEAD
-            if (b->type() == node_t::MIDDLE) swap( a, b );
-=======
-            
->>>>>>> 6615da9512a2d80e4733375defb4dcea963827b6
+
             //std::cout << get[*a] << ' ' << get[*b] << std::endl;
-            if(b->type()==node_t::MIDDLE) swap(a,b);
+            if (b->type() == node_t::MIDDLE) swap( a, b );
             dfa.mergeNode( *a, *b );//最后的合并
             x.erase( *b );
         }
