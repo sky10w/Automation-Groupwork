@@ -269,6 +269,8 @@ Map::iterator Map::mergeNode( iterator __dest, iterator __src )
 
     __dest->edge.insert( __src->edge.begin(), __src->edge.end() );
     __dest->revEdge.insert( __src->revEdge.begin(), __src->revEdge.end() );
+    __src->edge.clear();
+    __src->revEdge.clear();
 
     auto index = _nodeList.find( __src._m_val );
     _nodeList.erase( index );

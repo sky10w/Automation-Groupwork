@@ -146,7 +146,7 @@ void minimize( ato::Map& dfa )
         std::cout << std::endl;
     }
 
-    std::vector< std::set<Map::iterator> > identical;
+    std::vector< Map::iterator_set > identical;
     identical.clear();
     for (auto& x : dfa.all())
     {
@@ -160,7 +160,7 @@ void minimize( ato::Map& dfa )
                 //std::cout<<get[x]<<' '<<get[y]<<std::endl;
                 if (identical.size() == 0)
                 {
-                    std::set<Map::iterator> tmp;
+                    Map::iterator_set tmp;
                     tmp.insert( x );
                     tmp.insert( y );
                     identical.push_back( tmp );
@@ -174,7 +174,7 @@ void minimize( ato::Map& dfa )
                             break;//找到的话就塞进去
                         } else if (identical.back() == z)
                         {//找不到就新建
-                            std::set<Map::iterator> tmp;
+                            Map::iterator_set tmp;
                             tmp.insert( x );
                             tmp.insert( y );
                             identical.push_back( tmp );
@@ -189,7 +189,8 @@ void minimize( ato::Map& dfa )
         while (x.size() > 1)
         {
             auto a = x.begin();
-            auto b = x.rbegin();
+            auto b = --x.end();
+            if (b->type() == node_t::MIDDLE) swap( a, b );
             //std::cout << get[*a] << ' ' << get[*b] << std::endl;
             dfa.mergeNode( *a, *b );//最后的合并
             x.erase( *b );
