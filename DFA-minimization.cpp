@@ -1,8 +1,8 @@
 #include "DFA-minimization.hpp"
 #include<cstring>
-const int N = 30;//点上限
-const int M = 100;//边上限
-int h[1000];//点的坐标由N*a+b得来 这里尽量开大
+const int N = 100;//点上限
+const int M = 4000;//边上限
+int h[100000];//点的坐标由N*a+b得来 这里尽量开大
 int e[M];
 int ne[M];
 int cnt = 0;
