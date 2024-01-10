@@ -180,10 +180,11 @@ void Map::insertEdge( Map::iterator __from, Map::iterator __to, val_t __edgeVal 
 {
     __from->insertEdge( __to._m_val, __edgeVal );
 
-    if (__to.type() == ato::node_t::START)
-    {
-        this->setNodeType( __from, node_t::START );
-    }
+    // if (__to.type() == ato::node_t::START)
+    // {
+    //     this->setNodeType( __to, node_t::MIDDLE );
+    //     this->setNodeType( __from, node_t::START );
+    // }
     _edgeSize++;
 }
 
@@ -245,11 +246,11 @@ Map::iterator Map::mergeNode( iterator __dest, iterator __src )
         for (auto edge = i.second.begin(); edge != i.second.end(); )
         {
             auto cur = *(edge++);
-            if (cur->to() == __dest.get())
-            {
-                this->eraseEdge( __src, __dest, i.first );
-                continue;
-            }
+            // if (cur->to() == __dest.get())
+            // {
+            //     this->eraseEdge( __src, __dest, i.first );
+            //     continue;
+            // }
             cur->rev()->setTo( __dest._m_val );
         }
     }
@@ -258,11 +259,11 @@ Map::iterator Map::mergeNode( iterator __dest, iterator __src )
         for (auto edge = i.second.begin(); edge != i.second.end(); )
         {
             auto cur = *(edge++);
-            if (cur->to() == __dest.get())
-            {
-                this->eraseEdge( __dest, __src, i.first );
-                continue;
-            }
+            // if (cur->to() == __dest.get())
+            // {
+            //     this->eraseEdge( __dest, __src, i.first );
+            //     continue;
+            // }
             cur->ori()->setTo( __dest._m_val );
         }
     }

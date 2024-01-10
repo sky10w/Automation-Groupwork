@@ -6,6 +6,11 @@ node_type::node_type( _type b )
     :t( b )
 {}
 
+node_type::_type node_type::get() const
+{
+    return this->t;
+}
+
 node_type::_type node_type::operator+=( node_type::_type b )
 {
     if (b == node_type::MIDDLE)

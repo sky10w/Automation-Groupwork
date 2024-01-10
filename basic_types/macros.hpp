@@ -23,6 +23,7 @@ struct node_type
     };
     _type t;
     node_type( _type b );
+    _type get() const;
     _type operator+=( _type b );
     bool operator==( _type b );
     bool operator!=( _type b );

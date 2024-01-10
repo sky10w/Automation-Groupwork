@@ -31,6 +31,7 @@ DFAState Move( DFAState& S, val_t edge )
 }
 vector<DFAState>Set;
 ato::Map::iterator trapState;
+bool trapTriggered;
 void Recursion( DFAState State, ato::Map& DFA )
 {
     cout << DFA.all().size() << endl;
@@ -79,6 +80,8 @@ void Recursion( DFAState State, ato::Map& DFA )
         if (!checkIf)
         {
             DFA.insertEdge( State.SetNode, trapState, '0' );
+            trapTriggered = true;
+            std::cout << "Trap triggered" << '\n';
         }
     }
     bool nd1 = Insertf( Set, dfa2.StateNtoD );//对不同输入求状态然后判断是否加入新状态
@@ -119,6 +122,8 @@ void Recursion( DFAState State, ato::Map& DFA )
         if (!checkIf)
         {
             DFA.insertEdge( State.SetNode, trapState, '1' );
+            trapTriggered = true;
+            std::cout << "Trap triggered" << '\n';
         }
     }
     //从新加入的状态及其对应节点开始递归
@@ -131,6 +136,7 @@ ato::Map NtoD( ato::Map& _NFA )
     trapState = DFA.insertNode( ato::node_t::MIDDLE );
     DFA.insertEdge( trapState, trapState, '0' );
     DFA.insertEdge( trapState, trapState, '1' );
+    trapTriggered = false;
 
 
     DFAState q0;
@@ -140,12 +146,12 @@ ato::Map NtoD( ato::Map& _NFA )
     {
         if (i.type() == node_t::START)
         {
-            
+
             q0.StateNtoD.insert( i );//将初始状态存入初始状态集中
-            
-            q0.SetNode = DFA.insertNode( node_t::START);
-            if(i.type()==node_t::END)
-            DFA.setNodeType(q0.SetNode, node_t::END );//定位首节点
+
+            q0.SetNode = DFA.insertNode( node_t::START );
+            if (i.type() == node_t::END)
+                DFA.setNodeType( q0.SetNode, node_t::END );//定位首节点
         }
     }
     Set.push_back( q0 );
@@ -153,6 +159,11 @@ ato::Map NtoD( ato::Map& _NFA )
 
     Recursion( q0, DFA );
     _NFA.clear();
+
+    if (!trapTriggered)
+    {
+        DFA.eraseNode( trapState );
+    }
     return DFA;
 }
 

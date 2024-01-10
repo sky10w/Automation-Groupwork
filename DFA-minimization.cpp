@@ -68,15 +68,15 @@ void minimize( ato::Map& dfa )
         }
     }
 
-    for (int j = 0;j <= 2;j++)
-    {
-        for (int i = 0;i <= 2;i++)
-        {
-            if (j <= i) continue;
-            std::cout << flag[i][j] << ' ';
-        }
-        std::cout << std::endl;
-    }
+    // for (int j = 0;j <= 2;j++)
+    // {
+    //     for (int i = 0;i <= 2;i++)
+    //     {
+    //         if (j <= i) continue;
+    //         std::cout << flag[i][j] << ' ';
+    //     }
+    //     std::cout << std::endl;
+    // }
     //std::cout<<h[11]<<std::endl;
     //step2
     idx = 0;
@@ -123,20 +123,20 @@ void minimize( ato::Map& dfa )
                 }
             }
 
-            for (int j = 0;j <= 8;j++)
-            {
-                for (int i = 0;i <= 8;i++)
-                {
-                    //if(j<=i) continue;
-                    std::cout << flag[i][j] << ' ';
-                }
-                std::cout << std::endl;
-            }
+            // for (int j = 0;j <= 8;j++)
+            // {
+            //     for (int i = 0;i <= 8;i++)
+            //     {
+            //         //if(j<=i) continue;
+            //         std::cout << flag[i][j] << ' ';
+            //     }
+            //     std::cout << std::endl;
+            // }
         }
 
     }
-
-    for (int j = 0;j <= dfa.all().size();j++)
+    std::cout << "----------------" << '\n';
+    for (int j = 0;j <= dfa.all().size() - 1;j++)
     {
         for (int i = 0;i <= dfa.all().size();i++)
         {
@@ -186,18 +186,170 @@ void minimize( ato::Map& dfa )
     for (auto& x : identical)
     {
         //std::cout<<x.size()<<std::endl;
+        // node_t tempType = node_t::MIDDLE;
         while (x.size() > 1)
         {
             auto a = x.begin();
             auto b = --x.end();
 
             //std::cout << get[*a] << ' ' << get[*b] << std::endl;
-            if (b->type() == node_t::MIDDLE) swap( a, b );
+
+            // auto tempSave = *b;
+            // tempType += b.operator*().type().get();
+            if (b.operator*().type() == ato::node_t::MIDDLE) std::swap( a, b );
             dfa.mergeNode( *a, *b );//最后的合并
-            x.erase( *b );
+            x.erase( b );
         }
+        // dfa.setNodeType( a.operator*(), tempType.get() );
     }
     //step3,似乎不需要了
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+void minimize2( ato::Map& __dfa )
+{
+    __dfa.outputTest();
+    std::map<NodePairCmp::pair, NodePairCmp::pair, NodePairCmp> mp;
+    std::map<NodePairCmp::pair, bool, NodePairCmp> mark;
+    std::map<ato::Map::iterator, ato::Map::iterator> fa;
+    std::map<ato::Map::iterator, ato::Map::iterator_set> finalSet;
+
+
+    auto full = __dfa.all();
+    for (auto i : full)
+    {
+        fa.insert( { i, i } );
+    }
+    for (auto i = full.begin(); i != full.end(); i++)
+    {
+        for (auto j = std::next( i ); j != full.end(); j++)
+        {
+            if (j == full.end()) break;
+            if (((*i).type() == ato::node_t::END && (*j).type() != ato::node_t::END)
+                || ((*j).type() == ato::node_t::END && (*i).type() != ato::node_t::END))
+            {
+                mark.insert( { { *i, *j }, true } );
+            } else
+            {
+                mark.insert( { { *i, *j }, false } );
+            }
+        }
+    }
+
+    for (auto i : __dfa.dest())
+    {
+        for (auto j : full)
+        {
+            if (j.type() == ato::node_t::END) continue;
+            mark.insert( { {i,j},true } );
+            std::cout << "Insert mark " << i.get() << " and " << j.get() << '\n';
+        }
+    }
+    for (auto i = full.begin(); i != full.end(); i++)
+    {
+        for (auto j = std::next( i ); j != full.end(); j++)
+        {
+            for (auto c : { '0', '1' })
+            {
+                auto nx0 = i.operator*().next( c ).begin().operator*();
+                auto ny0 = j.operator*().next( c ).begin().operator*();
+                if (nx0 == ny0) continue;
+                if (mark[{ nx0, ny0 }] == true)
+                {
+                    auto tempA = *i, tempB = *j;
+                    mark[{tempA, tempB}] = true;
+                    std::cout << "Insert mark " << tempA.get() << " and " << tempB.get() << '\n';
+                    while (mp.find( { tempA, tempB } ) != mp.end())
+                    {
+                        auto tempRes = *(mp.find( { tempA, tempB } ));
+                        tempA = tempRes.second.first;
+                        tempB = tempRes.second.second;
+                        mark[{tempA, tempB}] = true;
+                        std::cout << "Insert mark " << tempA.get() << " and " << tempB.get() << '\n';
+                    }
+                } else
+                {
+                    mp.insert( { {nx0, ny0},{*i, *j} } );
+                }
+            }
+        }
+    }
+
+    for (auto& i : mark)
+    {
+        if (i.second == false)
+        {
+            auto x = i.first.first, y = i.first.second;
+            fa[y] = x;
+        }
+    }
+
+    for (auto& i : full)
+    {
+        auto ans = fa[i];
+        while (ans != fa[ans])
+        {
+            ans = fa[ans];
+        }
+        auto findRes = finalSet.find( ans );
+        if (findRes == finalSet.end())
+        {
+            finalSet.insert( { ans, {i} } );
+        } else
+        {
+            findRes.operator*().second.insert( i );
+        }
+    }
+
+    for (auto& i : finalSet)
+    {
+        node_t::_type tempType = ato::node_t::MIDDLE;
+        auto tar = i.second.begin().operator*();
+        for (auto j = std::next( i.second.begin() ); j != i.second.end(); j++)
+        {
+            if (j == i.second.end()) break;
+
+            if (j.operator*().type() == ato::node_t::START_END)
+            {
+                __dfa.mergeNode( tar, j.operator*() );
+                continue;
+            }
+
+            if (j.operator*().type() == ato::node_t::START)
+            {
+                if (tempType == ato::node_t::END) tempType = ato::node_t::START_END;
+                else tempType = ato::node_t::START;
+            }
+            if (j.operator*().type() == ato::node_t::END)
+            {
+                if (tempType == ato::node_t::START) tempType = ato::node_t::START_END;
+                else tempType = ato::node_t::END;
+            }
+            __dfa.mergeNode( tar, j.operator*() );
+        }
+        __dfa.setNodeType( tar, tempType );
+    }
+
+
+}
+
+*/

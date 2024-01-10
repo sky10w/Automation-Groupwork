@@ -25,7 +25,7 @@ void RG::DFAtoRG( Map DFA )
         string tempstr2;
         Map::iterator_set tempset;
         tempset.clear();
-        tempset = iter->next( 0 );
+        tempset = iter->next( '0' );
         Map::iterator_set::iterator iterator;
         for (iterator = tempset.begin(); iterator != tempset.end(); iterator++)
         {
@@ -39,7 +39,7 @@ void RG::DFAtoRG( Map DFA )
         }
 
         tempset.clear();
-        tempset = iter->next( 1 );
+        tempset = iter->next( '1' );
         for (iterator = tempset.begin(); iterator != tempset.end(); iterator++)
         {
             tempstr.clear();

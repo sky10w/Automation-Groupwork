@@ -35,7 +35,10 @@ void clear_state( ato::Map& enfa )
     }
     for (auto x : enfa.all())
         if (!isvisited[x])
+        {
             enfa.eraseNode( x );
+            std::cout << "Erase a node" << '\n';
+        }
     //去不可达终结状态的状态
     /*
     for(auto x:enfa.all()){

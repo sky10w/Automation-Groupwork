@@ -7,6 +7,7 @@ void printDFA( const ato::Map& __dfa )
     std::vector<ato::Map::iterator> set;
     int cnt = 0;
     std::map<ato::Map::iterator, int> mp;
+    set.push_back( {} );
     for (auto& i : __dfa.all())
     {
         set.push_back( i );
@@ -21,7 +22,7 @@ void printDFA( const ato::Map& __dfa )
     std::cout << std::setw( 4 ) << "----" << "-|-"
         << std::setw( 4 ) << "----" << "-|-"
         << std::setw( 4 ) << "----" << '\n';
-    for (int i = 0; i < set.size(); i++)
+    for (int i = 1; i < set.size(); i++)
     {
         auto temp = std::string( "q" ) + std::to_string( i );
         if (set[i].type() == ato::node_t::START)
@@ -55,7 +56,7 @@ void toDot( const ato::Map& __dfa )
     {
         vis.insert( { i, false } );
     }
-    dot_file << "s -> q0" << '\n';
+    dot_file << "s -> q1" << '\n';
 
     std::queue<ato::Map::iterator> q;
     int cnt = 0;
@@ -81,8 +82,8 @@ void toDot( const ato::Map& __dfa )
             q.push( to1 );
             id.insert( { cur, cnt++ } );
         }
-        dot_file << "q" << id[cur] << " -> q" << id[to0] << '\n'
-            << "q" << id[cur] << " -> q" << id[to1] << '\n';
+        dot_file << "q" << id[cur] + 1 << " -> q" << id[to0] + 1 << '\n'
+            << "q" << id[cur] + 1 << " -> q" << id[to1] + 1 << '\n';
     }
 
     dot_file << '}' << '\n';
