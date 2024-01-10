@@ -189,8 +189,10 @@ void minimize( ato::Map& dfa )
         while (x.size() > 1)
         {
             auto a = x.begin();
-            auto b = x.rbegin();
+            auto b = --x.end();
+            
             //std::cout << get[*a] << ' ' << get[*b] << std::endl;
+            if(b->type()==node_t::MIDDLE) swap(a,b);
             dfa.mergeNode( *a, *b );//最后的合并
             x.erase( *b );
         }
