@@ -1,4 +1,6 @@
-﻿#include<iostream>
+﻿#ifndef __RG_HPP__
+#define __RG_HPP__
+#include<iostream>
 #include<vector>
 #include"basic_types/Map.hpp"
 
@@ -15,6 +17,7 @@ private:
     vector<string> P;
 
 public:
-    void DFAtoRG( Map DFA );
+    void DFAtoRG( Map &DFA );
     void printRG();
 };
+#endif

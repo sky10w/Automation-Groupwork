@@ -5,6 +5,7 @@ BASIC_NAMESPACE_BEGIN
 
 // Map::iterator_set __closure__flag;
 
+
 const Node* Map::iterator::get() const
 {
     return this->_m_val;
@@ -192,8 +193,12 @@ void Map::setNodeType( iterator __tar, node_t::_type __nodeType )
     }
 
     __tar->type += __nodeType;
+}/*
+void Map::setTrapNode(iterator __trap)
+{
+    this->_trapNode=__trap.get();
 }
-
+*/
 Map::iterator Map::expandNode( Map::iterator __from, val_t __edgeVal )
 {
     Map::iterator newNode = this->insertNode( node_t::MIDDLE );
