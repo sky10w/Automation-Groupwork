@@ -114,6 +114,7 @@ void RG::printRG()
     map<Map::iterator, char>::iterator it1;
     for (it1 = V.begin(); it1 != V.end(); it1++)
     {
+        if (it1->second == trap) continue;
         if (it1 != V.begin()) cout << ',';
         cout << it1->second;
     }
@@ -124,6 +125,7 @@ void RG::printRG()
     for (it2 = T.begin(); it2 != T.end(); it2++)
     {
         if (it2 != T.begin()) cout << ',';
+
         cout << *it2;
     }
     cout << "}" << endl;
