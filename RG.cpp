@@ -106,36 +106,36 @@ void RG::DFAtoRG( Map& DFA )
     return;
 }
 
-void RG::printRG()
+void RG::printRG( ostream& __ost )
 {
-    cout << "RG = {V,T,S,P}" << endl;
+    __ost << "RG = {V,T,S,P}" << endl;
 
-    cout << "V = {";
+    __ost << "V = {";
     map<Map::iterator, char>::iterator it1;
     for (it1 = V.begin(); it1 != V.end(); it1++)
     {
         if (it1->second == trap) continue;
-        if (it1 != V.begin()) cout << ',';
-        cout << it1->second;
+        if (it1 != V.begin()) __ost << ',';
+        __ost << it1->second;
     }
-    cout << "}" << endl;
+    __ost << "}" << endl;
 
-    cout << "T = {";
+    __ost << "T = {";
     vector<char>::iterator it2;
     for (it2 = T.begin(); it2 != T.end(); it2++)
     {
-        if (it2 != T.begin()) cout << ',';
+        if (it2 != T.begin()) __ost << ',';
 
-        cout << *it2;
+        __ost << *it2;
     }
-    cout << "}" << endl;
+    __ost << "}" << endl;
 
-    cout << "S = " << 'S' << endl;
+    __ost << "S = " << 'S' << endl;
 
-    cout << "P = ";
+    __ost << "P = ";
     for (auto x : P)
     {
-        cout << x << endl;
+        __ost << x << endl;
     }
     return;
 }

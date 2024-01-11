@@ -17,7 +17,7 @@ private:
     vector<string> P;
 
 public:
-    void DFAtoRG( Map &DFA );
-    void printRG();
+    void DFAtoRG( Map& DFA );
+    void printRG( ostream& __ost = std::cout );
 };
 #endif

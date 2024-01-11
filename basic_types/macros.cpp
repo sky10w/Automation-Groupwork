@@ -57,16 +57,16 @@ std::ostream& operator<<( std::ostream& __lhs, node_t& __rhs )
 {
     if (__rhs == node_type::START_END)
     {
-        std::cout << "Start&End";
+        __lhs << "Start&End";
     } else if (__rhs == node_type::START)
     {
-        std::cout << "Start";
+        __lhs << "Start";
     } else if (__rhs == node_type::END)
     {
-        std::cout << "End";
+        __lhs << "End";
     } else
     {
-        std::cout << "Middle";
+        __lhs << "Middle";
     }
     return __lhs;
 }

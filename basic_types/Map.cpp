@@ -288,7 +288,7 @@ Map Map::concat( const Map& __a, const Map& __b )
 {
     if (__a.empty() && __b.empty())
     {
-        std::cout << "Better not concat two empty Map" << '\n';
+        std::cerr << "Better not concat two empty Map" << '\n';
         return Map();
     }
     if (__a.empty())
@@ -304,7 +304,7 @@ Map Map::concat( const Map& __a, const Map& __b )
     auto& pre = tempA._endNode;
     if (post == nullptr)
     {
-        std::cout << "Warning: the startNode of left Map is nullptr" << '\n';
+        std::cerr << "Warning: the startNode of left Map is nullptr" << '\n';
     } else
     {
         tempB.setNodeType( iterator( post ), node_t::MIDDLE );
@@ -405,49 +405,49 @@ void Map::outputTest()
 {
     if (this->empty())
     {
-        std::cout << "This Map is empty\n";
+        std::cerr << "This Map is empty\n";
     }
     int cnt = 0;
     std::map<Node*, int> id;
     for (auto& i : _nodeList)
     {
         id.insert( { i, ++cnt } );
-        std::cout << "id-" << cnt << " : " << i << '\n';
+        std::cerr << "id-" << cnt << " : " << i << '\n';
     }
     for (auto& i : _nodeList)
     {
-        std::cout << "id-" << id[i];
+        std::cerr << "id-" << id[i];
 
         if (i->type == ato::node_t::START)
         {
-            std::cout << " [start]";
+            std::cerr << " [start]";
         }
         if (i->type == ato::node_t::END)
         {
-            std::cout << " [end]";
+            std::cerr << " [end]";
         }
         if (i->edge.empty())
         {
-            std::cout << '\n';
+            std::cerr << '\n';
             continue;
         }
-        std::cout << " :\n";
+        std::cerr << " :\n";
         for (auto& j : i->edge)
         {
             if (j.second.empty()) continue;
-            std::cout << "\t" << j.first << " -> ";
+            std::cerr << "\t" << j.first << " -> ";
             size_t tempCnt = 0;
             for (auto& k : j.second)
             {
                 tempCnt++;
                 if (tempCnt == j.second.size())
                 {
-                    std::cout << id[k->to()];
+                    std::cerr << id[k->to()];
                     break;
                 }
-                std::cout << id[k->to()] << ", ";
+                std::cerr << id[k->to()] << ", ";
             }
-            std::cout << '\n';
+            std::cerr << '\n';
         }
     }
 }

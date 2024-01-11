@@ -14,7 +14,7 @@ void clear_state( ato::Map& enfa )
     auto start = enfa.begin();
     std::queue<Map::iterator> visitable;
     visitable.push( start );
-    std::cout << "clear_state:" << std::endl;
+    std::cerr << "clear_state:" << std::endl;
     while (visitable.size())
     {
         auto x = visitable.front();
@@ -31,13 +31,13 @@ void clear_state( ato::Map& enfa )
             to_add.erase( x );
         for (auto x : to_add)
             visitable.push( x );
-        std::cout << visitable.size() << std::endl;
+        std::cerr << visitable.size() << std::endl;
     }
     for (auto x : enfa.all())
         if (!isvisited[x])
         {
             enfa.eraseNode( x );
-            std::cout << "Erase a node" << '\n';
+            std::cerr << "Erase a node" << '\n';
         }
     //去不可达终结状态的状态
     /*

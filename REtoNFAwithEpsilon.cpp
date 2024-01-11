@@ -121,9 +121,9 @@ void ConvertREtoNFAEpsilon::testMidToPost( const std::string& __re )
     auto list = _midToPost( __re );
     for (auto& i : list)
     {
-        std::cout << i << ' ';
+        std::cerr << i << ' ';
     }
-    std::cout << '\n';
+    std::cerr << '\n';
 }
 
 ato::Map ConvertREtoNFAEpsilon::convert( const std::string& __re )
@@ -181,7 +181,7 @@ ato::Map ConvertREtoNFAEpsilon::convert( const std::string& __re )
     }
     if (startStk.size() > 1 || endStk.size() > 1)
     {
-        std::cout << "Invalid RE" << '\n';
+        std::cerr << "Invalid RE" << '\n';
     }
     mp.insertEdge( mp.insertNode( ato::node_t::START ), startStk.top(), ato::EPSILON );
     mp.insertEdge( endStk.top(), mp.insertNode( ato::node_t::END ), ato::EPSILON );

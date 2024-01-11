@@ -89,7 +89,7 @@ void minimize( ato::Map& dfa )
             if (get[y] <= get[x]) continue;//保证(qx,qy)(qy,qx)只会访问一个
             //std::cout<<get[x]<<' '<<get[y]<<std::endl;
             idx++;
-            //if (flag[get[x]][get[y]]) continue;
+            // if (flag[get[x]][get[y]]) continue;
             auto x0 = *x.next( '0' ).begin();
             auto y0 = *y.next( '0' ).begin();
             auto x1 = *x.next( '1' ).begin();
@@ -134,15 +134,15 @@ void minimize( ato::Map& dfa )
         }
 
     }
-    std::cout << "----------------" << '\n';
+    std::cerr << "----------------" << '\n';
     for (int j = 0;j <= dfa.all().size() - 1;j++)
     {
         for (int i = 0;i <= dfa.all().size();i++)
         {
             if (j <= i) continue;
-            std::cout << flag[i][j] << ' ';
+            std::cerr << flag[i][j] << ' ';
         }
-        std::cout << std::endl;
+        std::cerr << std::endl;
     }
 
     std::vector< Map::iterator_set > identical;

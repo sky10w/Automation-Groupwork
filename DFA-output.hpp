@@ -9,8 +9,8 @@
 #include <fstream>
 
 
-void printDFA( const ato::Map& __dfa );
+void printDFA( const ato::Map& __dfa, std::ostream& __ost = std::cout );
 
-void toDot( const ato::Map& __dfa );
+void toDot( const ato::Map& __dfa, std::ostream& __ost = std::cout );
 
 #endif

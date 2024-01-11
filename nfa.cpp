@@ -55,7 +55,7 @@ void convertNFA( ato::Map& enfa )
         closure0[x]=x.e_closure();
         cout<<closure0[x].size()<<' ';
     }*/
-    cout << endl;
+    // cout << endl;
     //step1 获取闭包的边
     for (auto& x : enfa.all())
     {
@@ -82,7 +82,7 @@ void convertNFA( ato::Map& enfa )
     /*
     for(auto &x:closure2){3
 
-    
+
         for(auto &y:x.second)
             enfa.insertEdge(x.first,y,'2');
     }*/
@@ -101,6 +101,6 @@ void convertNFA( ato::Map& enfa )
     for (auto& x : enfa.all())
         for (auto& y : enfa.all())
             enfa.eraseEdge( x, y, 'E' );
-            
+
     //return enfa;
 }

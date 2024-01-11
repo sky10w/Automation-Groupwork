@@ -34,7 +34,7 @@ ato::Map::iterator trapState;
 bool trapTriggered;
 void Recursion( DFAState State, ato::Map& DFA )
 {
-    cout << DFA.all().size() << endl;
+    // cout << DFA.all().size() << endl;
     //State为输入状态，Set为整个状态集的集合，DFA为要返回的DFA
     //int _bool1 = 0;
     //int _bool2 = 0;
@@ -81,7 +81,7 @@ void Recursion( DFAState State, ato::Map& DFA )
         {
             DFA.insertEdge( State.SetNode, trapState, '0' );
             trapTriggered = true;
-            std::cout << "Trap triggered" << '\n';
+            std::cerr << "Trap triggered" << '\n';
         }
     }
     bool nd1 = Insertf( Set, dfa2.StateNtoD );//对不同输入求状态然后判断是否加入新状态
@@ -123,7 +123,7 @@ void Recursion( DFAState State, ato::Map& DFA )
         {
             DFA.insertEdge( State.SetNode, trapState, '1' );
             trapTriggered = true;
-            std::cout << "Trap triggered" << '\n';
+            std::cerr << "Trap triggered" << '\n';
         }
     }
     //从新加入的状态及其对应节点开始递归
