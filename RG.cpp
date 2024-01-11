@@ -15,7 +15,7 @@ void RG::DFAtoRG( Map DFA )
 
     for (iter = Alliterset.begin(); iter != Alliterset.end(); iter++)
     {
-        V[*iter] = 'A' + countfalp;
+        V[*iter+1] = 'A' + countfalp;
         countfalp++;
     }
 
@@ -27,29 +27,42 @@ void RG::DFAtoRG( Map DFA )
         tempset.clear();
         tempset = iter->next( '0' );
         Map::iterator_set::iterator iterator;
+
+        tempstr.clear();
+        tempstr2.clear();
+        tempstr = V[*iter];
+        tempstr = tempstr + "->0";
+        tempstr2 = V[*iterator];
+        tempstr = tempstr + tempstr2;
+
         for (iterator = tempset.begin(); iterator != tempset.end(); iterator++)
         {
-            tempstr.clear();
             tempstr2.clear();
-            tempstr = V[*iter];
-            tempstr = tempstr + "->0";
+            tempstr = tempstr + "|";
             tempstr2 = V[*iterator];
             tempstr = tempstr + tempstr2;
-            P.insert( P.end(), tempstr );
         }
+        P.insert(P.end(), tempstr);
 
         tempset.clear();
         tempset = iter->next( '1' );
+
+        tempstr.clear();
+        tempstr2.clear();
+        tempstr = V[*iter];
+        tempstr = tempstr + "->1";
+        tempstr2 = V[*iterator];
+        tempstr = tempstr + tempstr2;
+
         for (iterator = tempset.begin(); iterator != tempset.end(); iterator++)
         {
-            tempstr.clear();
             tempstr2.clear();
-            tempstr = V[*iter];
-            tempstr = tempstr + "->1";
+            tempstr = tempstr + "|";
             tempstr2 = V[*iterator];
             tempstr = tempstr + tempstr2;
-            P.insert( P.end(), tempstr );
         }
+
+        P.insert(P.end(), tempstr);
 
     }
 
