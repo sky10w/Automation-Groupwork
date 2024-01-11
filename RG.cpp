@@ -9,7 +9,6 @@ void RG::DFAtoRG( Map &DFA )
     Map::iterator it;
     it = DFA.begin();
     V[it] = 'S';
-    Map::iterator_set::iterator iter;
     Map::iterator_set Alliterset = DFA.all();
 
     int countfalp = 0;
@@ -51,13 +50,30 @@ void RG::DFAtoRG( Map &DFA )
         /*
         for (iterator = tempset.begin(); iterator != tempset.end(); iterator++)
         {
-            tempstr.clear();
             tempstr2.clear();
-            tempstr = V[*iter];
-            tempstr = tempstr + "->0";
+            tempstr = tempstr + "|";
             tempstr2 = V[*iterator];
             tempstr = tempstr + tempstr2;
-            P.insert( P.end(), tempstr );
+        }
+        P.insert(P.end(), tempstr);
+
+
+        tempset = iter->next( '1' );
+
+        tempstr.clear();
+        tempstr2.clear();
+        tempstr = V[*iter];
+        tempstr = tempstr + "->1";
+        tempstr2 = V[*iterator];
+        tempstr = tempstr + tempstr2;
+
+
+        for (auto iterator = tempset.begin(); iterator != tempset.end(); iterator++)
+        {
+            tempstr2.clear();
+            tempstr = tempstr + "|";
+            tempstr2 = V[*iterator];
+            tempstr = tempstr + tempstr2;
         }
         */
         /*
