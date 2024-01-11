@@ -44,22 +44,23 @@ void printDFA( const ato::Map& __dfa )
 
 void toDot( const ato::Map& __dfa )
 {
-    std::ofstream dot_file( "./res/graph.dot" );
+    std::ofstream dot_file( "graph.dot" );
     // Init
     dot_file << "strict digraph G {" << '\n'
         << "rankdir = LR;" << '\n'
         << "node[shape=circle]" << '\n'
         << "edge[arrowhead=vee]" << '\n';
+    int cnt = 0;
     std::map<ato::Map::iterator, bool> vis;
     std::map<ato::Map::iterator, int> id;
     for (auto& i : __dfa.all())
     {
         vis.insert( { i, false } );
+        id.insert( { i, ++cnt } );
     }
-    dot_file << "s -> q1" << '\n';
+    dot_file << "s -> q" << id[__dfa.begin()] << '\n';
 
     std::queue<ato::Map::iterator> q;
-    int cnt = 0;
     q.push( __dfa.begin() );
     while (!q.empty())
     {
@@ -75,17 +76,15 @@ void toDot( const ato::Map& __dfa )
         if (vis[to0] == false)
         {
             q.push( to0 );
-            id.insert( { cur, cnt++ } );
         }
         if (vis[to1] == false)
         {
             q.push( to1 );
-            id.insert( { cur, cnt++ } );
         }
-        dot_file << "q" << id[cur] + 1 << " -> q" << id[to0] + 1 << '\n'
-            << "q" << id[cur] + 1 << " -> q" << id[to1] + 1 << '\n';
+        dot_file << "q" << id[cur] << " -> q" << id[to0] << "[label=\"0\"]" << '\n'
+            << "q" << id[cur] << " -> q" << id[to1] << "[label=\"1\"]" << '\n';
     }
 
     dot_file << '}' << '\n';
-    system( "dot -Tpng ./res/graph.dot -o ./res/graph.png" );
+    system( "dot -Tpng graph.dot -o graph.png" );
 }
