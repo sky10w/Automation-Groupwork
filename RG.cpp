@@ -39,12 +39,18 @@ void RG::DFAtoRG( Map &DFA )
         if(V[temp1]!=trap) {
             strtemp+="0";
             strtemp+=V[temp1];
+            
         }
         if(V[temp2]!=trap) {
             if(strtemp!=strstart)
                 strtemp+="|";
             strtemp+="1";
             strtemp+=V[temp2];
+        }
+        if(x.type() == node_t::END) {
+            if(strtemp!=strstart)
+                strtemp+="|";
+                strtemp+="ε";
         }
         P.push_back(strtemp);
         /*
