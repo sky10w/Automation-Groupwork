@@ -23,6 +23,7 @@ private:
     Node_set _nodeList;
     Node_set _endNode;
     Node* _startNode;
+    
     size_t _edgeSize = 0;
     size_t _nodeSize = 0;
 
@@ -40,6 +41,8 @@ public:
     // 改变结点属性（开始状态，中间状态，结束状态）
     void setNodeType( iterator __tar, node_t::_type __nodeType );
 
+    //void setTrapNode(iterator __trap);
+    
     // 删除一条边
     void eraseEdge( iterator __from, iterator __to, val_t __edgeVal );
     // 删除一个结点，且与之相关的边全部被清除s
@@ -55,6 +58,8 @@ public:
     void concat( const Map& __rhs );
     // 开始状态
     iterator begin() const;
+    ////返回陷阱状态
+    //iterator trap() const;
     // 返回结束状态的迭代器集合
     iterator_set dest() const;
     // 返回所有结点的迭代器集合
