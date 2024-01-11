@@ -42,7 +42,6 @@ void minimize( ato::Map& dfa )
     memset( h, -1, sizeof h );
     get.clear();
 
-
     memset( flag, 0, sizeof flag );
     int size = dfa.all().size();
 
