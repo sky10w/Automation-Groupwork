@@ -59,6 +59,11 @@ void toDot( const ato::Map& __dfa )
         id.insert( { i, ++cnt } );
     }
     dot_file << "s -> q" << id[__dfa.begin()] << '\n';
+    for (auto& i : __dfa.all())
+    {
+        if (i.type() == ato::node_t::END)
+            dot_file << "q" << id[i] << "[shape=doublecircle]" << '\n';
+    }
 
     std::queue<ato::Map::iterator> q;
     q.push( __dfa.begin() );
@@ -66,25 +71,27 @@ void toDot( const ato::Map& __dfa )
     {
         auto cur = q.front();
         vis[cur] = true;
-        if (id.find( cur ) == id.end())
-        {
-            id.insert( { cur,cnt++ } );
-        }
+        // if (id.find( cur ) == id.end())
+        // {
+        //     id.insert( { cur,cnt++ } );
+        // }
         q.pop();
         auto to0 = cur.next( '0' ).begin().operator*();
         auto to1 = cur.next( '1' ).begin().operator*();
         if (vis[to0] == false)
         {
             q.push( to0 );
+            vis[to0] = true;
         }
         if (vis[to1] == false)
         {
             q.push( to1 );
+            vis[to1] = true;
         }
         dot_file << "q" << id[cur] << " -> q" << id[to0] << "[label=\"0\"]" << '\n'
             << "q" << id[cur] << " -> q" << id[to1] << "[label=\"1\"]" << '\n';
     }
 
     dot_file << '}' << '\n';
-    system( "dot -Tpng graph.dot -o graph.png" );
+    // system( "dot -Tpng graph.dot -o graph.png" );
 }
