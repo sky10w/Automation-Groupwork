@@ -40,7 +40,7 @@ struct NodePairCmp
 
 };
 
-void minimize2( ato::Map& __dfa );
+// void minimize2( ato::Map& __dfa );
 
 
 

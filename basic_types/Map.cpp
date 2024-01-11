@@ -3,7 +3,7 @@
 
 BASIC_NAMESPACE_BEGIN
 
-Map::iterator_set __closure__flag;
+// Map::iterator_set __closure__flag;
 
 const Node* Map::iterator::get() const
 {
@@ -15,39 +15,6 @@ node_t Map::iterator::type() const
     return _m_val->type.t;
 }
 
-// Map::iterator_set Map::iterator::next_closure( val_t __val ) const
-// {
-//     iterator_set temp;//temp作为this的空闭包
-//     this->clearflag();
-//     auto closure = this->e_closure();
-//     temp.insert( closure.begin(), closure.end() );
-//     this->clearflag();
-
-//     iterator_set ans;
-//     /*
-//     if (this->get()->edge.find( __val ) == this->get()->edge.end())
-//     {
-//         return temp;
-//     }
-//     */
-//     for (auto& x : temp)
-//     {
-//         //std::cout<<x._m_val->edge[__val].size()<<' ';
-//         for (auto& i : x._m_val->edge[__val])
-//         {
-//             ans.insert( iterator( i->to() ) );
-//         }
-//     }
-//     //std::cout<<std::endl;
-//     for (auto x : ans)
-//     {
-//         this->clearflag();
-//         auto y = x.e_closure();
-//         this->clearflag();
-//         ans.insert( y.begin(), y.end() );
-//     }
-//     return ans;//ans为空闭包的next的空闭包即 this->e_clo.next(__val).e_clo
-// }
 Map::iterator_set Map::iterator::next( val_t __val ) const
 {
     iterator_set temp;
@@ -61,26 +28,6 @@ Map::iterator_set Map::iterator::next( val_t __val ) const
     }
     return temp;
 }
-// Map::iterator_set Map::iterator::e_closure() const
-// {
-//     __closure__flag.insert(*this);
-//     auto val='E';
-//     iterator_set temp;
-//     temp.insert(*this);
-//     for (auto& i : this->_m_val->edge[val]){//
-//         auto y=iterator(i->to());
-//         if(__closure__flag.find(y)==__closure__flag.end()){
-//             auto x=y.e_closure();//dfs
-//             temp.insert(x.begin(),x.end());
-//         }
-//     }
-//     return temp;
-// }
-
-// void Map::iterator::clearflag() const
-// {
-//     __closure__flag.clear();
-// }
 Map::iterator_set Map::iterator::revNext( val_t __val ) const
 {
     iterator_set temp;
@@ -140,30 +87,46 @@ Map::Map( const Map& __src )
     }
     this->_nodeSize = __src._nodeSize;
 
-    std::map<Node*, Node*> oldToNew;
-    for (auto& i : __src._nodeList)
+    std::map<iterator, iterator> oldToNew;
+    for (auto& i : __src.all())
     {
-        oldToNew.insert( { i, new Node( *i ) } );
-        if (i == __src._startNode)
-        {
-            this->_startNode = oldToNew[i];
-        }
+        oldToNew.insert( { i, this->insertNode( i.type().get() ) } );
     }
-    for (auto& i : __src._endNode)
+    for (auto& i : __src.all())
     {
-        this->_endNode.insert( oldToNew[i] );
-    }
-    for (auto& i : oldToNew)
-    {
-        for (auto& valSet : i.first->edge)
+        for (auto& j : i._m_val->edge)
         {
-            for (auto& edge : valSet.second)
+            for (auto& edge : j.second)
             {
-                i.second->insertEdge( oldToNew[edge->to()], valSet.first );
+                this->insertEdge( oldToNew[i], oldToNew[iterator( edge->to() )], j.first );
             }
         }
-        _nodeList.insert( i.second );
     }
+
+    // std::map<Node*, Node*> oldToNew;
+    // for (auto& i : __src._nodeList)
+    // {
+    //     oldToNew.insert( { i, new Node( *i ) } );
+    //     if (i == __src._startNode)
+    //     {
+    //         this->_startNode = oldToNew[i];
+    //     }
+    // }
+    // for (auto& i : __src._endNode)
+    // {
+    //     this->_endNode.insert( oldToNew[i] );
+    // }
+    // for (auto& i : oldToNew)
+    // {
+    //     for (auto& valSet : i.first->edge)
+    //     {
+    //         for (auto& edge : valSet.second)
+    //         {
+    //             i.second->insertEdge( oldToNew[edge->to()], valSet.first );
+    //         }
+    //     }
+    //     _nodeList.insert( i.second );
+    // }
 }
 
 Map::Map( Map&& __src )
