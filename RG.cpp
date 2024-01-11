@@ -119,7 +119,9 @@ void RG::printRG()
     vector<char>::iterator it2;
     for (it2 = T.begin(); it2 != T.end(); it2++)
     {
+        if(*it2==trap) continue;
         if(it2!=T.begin()) cout<<',';
+
         cout << *it2;
     }
     cout << "}" << endl;
